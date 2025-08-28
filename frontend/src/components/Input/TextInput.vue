@@ -241,7 +241,7 @@ const handleDragEnter = (e: DragEvent) => {
 const handleDragLeave = (e: DragEvent) => {
   e.preventDefault()
   // Only hide drag overlay if leaving the drop zone entirely
-  if (!e.currentTarget?.contains(e.relatedTarget as Node)) {
+  if (e.relatedTarget && !(e.currentTarget as Element)?.contains(e.relatedTarget as Node)) {
     isDragOver.value = false
   }
 }

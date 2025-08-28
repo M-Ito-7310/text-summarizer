@@ -209,6 +209,9 @@ export const useAppStore = defineStore('app', () => {
     currentResult,
     error,
     
+    // API Configuration
+    API_BASE_URL,
+    
     // Computed
     characterCount,
     wordCount,

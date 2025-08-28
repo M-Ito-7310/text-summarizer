@@ -76,7 +76,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onUnmounted } from 'vue'
+import { ref, watch, onUnmounted } from 'vue'
 import { XCircle, AlertTriangle, CheckCircle, Info, X } from 'lucide-vue-next'
 
 export interface Props {
@@ -178,12 +178,6 @@ const handleClose = () => {
   emit('close')
 }
 
-const handleAction = () => {
-  if (props.actionHandler) {
-    props.actionHandler()
-  }
-  emit('action')
-}
 
 // Watch for show prop changes to handle auto-dismiss
 watch(

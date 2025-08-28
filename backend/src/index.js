@@ -25,6 +25,7 @@ async function startServer() {
   const logger = (await import('./utils/logger.js')).default;
   const { errorHandler, notFound } = await import('./middleware/errorMiddleware.js');
   const textRoutes = (await import('./routes/textRoutes.js')).default;
+  const fileRoutes = (await import('./routes/fileRoutes.js')).default;
 
   const app = express();
   const server = createServer(app);
@@ -63,6 +64,7 @@ async function startServer() {
 
   // API routes
   app.use('/api/text', textRoutes);
+  app.use('/api/files', fileRoutes);
 
   // Error handling middleware
   app.use(notFound);

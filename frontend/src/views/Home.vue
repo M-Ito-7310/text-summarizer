@@ -2,13 +2,29 @@
   <div class="min-h-screen bg-gray-50 dark:bg-gray-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <!-- Header Section -->
-      <div class="text-center mb-12">
-        <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-4">
+      <div class="text-center mb-12 animate-fade-in">
+        <h1 class="text-5xl md:text-6xl font-bold gradient-text mb-6 animate-slide-up">
           AI-Powered Text Analysis
         </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          Extract key insights from your text with advanced summarization and keyword extraction powered by state-of-the-art AI models.
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.2s;">
+          Extract key insights from your text with advanced summarization and keyword extraction powered by state-of-the-art AI models. Upload files or paste text to get started.
         </p>
+        
+        <!-- Features badges -->
+        <div class="flex justify-center items-center space-x-3 mt-6 animate-slide-up" style="animation-delay: 0.4s;">
+          <span class="tag-success">
+            <FileText class="w-4 h-4 mr-1" />
+            File Support
+          </span>
+          <span class="tag">
+            <Zap class="w-4 h-4 mr-1" />
+            AI-Powered
+          </span>
+          <span class="tag-warning">
+            <Shield class="w-4 h-4 mr-1" />
+            Secure & Private
+          </span>
+        </div>
       </div>
       
       <!-- Error Alert -->
@@ -25,7 +41,45 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <!-- Left Column: Input -->
         <div class="lg:col-span-2 space-y-8">
-          <TextInput />
+          <!-- Input Options Tabs -->
+          <div class="card">
+            <div class="flex border-b border-gray-200 dark:border-gray-700">
+              <button
+                @click="inputMode = 'text'"
+                :class="[
+                  'px-6 py-4 font-medium text-sm border-b-2 transition-colors duration-200',
+                  inputMode === 'text' 
+                    ? 'border-blue-500 text-blue-600 dark:text-blue-400' 
+                    : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
+                ]"
+              >
+                Text Input
+              </button>
+              <button
+                @click="inputMode = 'file'"
+                :class="[
+                  'px-6 py-4 font-medium text-sm border-b-2 transition-colors duration-200',
+                  inputMode === 'file' 
+                    ? 'border-blue-500 text-blue-600 dark:text-blue-400' 
+                    : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
+                ]"
+              >
+                File Upload
+              </button>
+            </div>
+          </div>
+          
+          
+          <!-- Text Input -->
+          <TextInput v-if="inputMode === 'text'" />
+          
+          <!-- File Upload -->
+          <FileUpload 
+            v-if="inputMode === 'file'"
+            @text-extracted="handleTextExtracted"
+            @file-uploaded="handleFileUploaded"
+          />
+          
           
           <!-- Results -->
           <ResultDisplay :result="appStore.currentResult" />
@@ -74,7 +128,7 @@
                     File Support
                   </h3>
                   <p class="text-gray-600 dark:text-gray-400 text-sm">
-                    Upload and analyze TXT files directly without manual copying.
+                    Upload and analyze PDF, DOCX, and TXT files with drag & drop support.
                   </p>
                 </div>
               </div>
@@ -211,18 +265,20 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { 
   Zap, Tag, FileText, Clock, Lightbulb, BarChart3, Shield
 } from 'lucide-vue-next'
 import { useAppStore, type AnalysisResult } from '@/stores/appStore'
 import TextInput from '@/components/Input/TextInput.vue'
+import FileUpload from '@/components/Input/FileUpload.vue'
 import ResultDisplay from '@/components/Results/ResultDisplay.vue'
 import HistoryPanel from '@/components/History/HistoryPanel.vue'
 import ErrorAlert from '@/components/UI/ErrorAlert.vue'
 import LoadingSpinner from '@/components/UI/LoadingSpinner.vue'
 
 const appStore = useAppStore()
+const inputMode = ref<'text' | 'file'>('file')
 
 const totalWordsProcessed = computed(() => {
   return appStore.analysisHistory.reduce((total, item) => {
@@ -247,6 +303,25 @@ const scrollToInput = () => {
 
 const handleHistoryItemSelected = (item: AnalysisResult) => {
   appStore.currentResult = item
+}
+
+const handleTextExtracted = (text: string) => {
+  // Switch to text input mode to show the extracted text
+  inputMode.value = 'text'
+  appStore.setText(text)
+  
+  // Automatically scroll to results
+  setTimeout(() => {
+    const resultsElement = document.querySelector('[data-results]')
+    if (resultsElement) {
+      resultsElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, 100)
+}
+
+const handleFileUploaded = (fileData: any) => {
+  console.log('File uploaded successfully:', fileData)
+  // Additional file upload handling if needed
 }
 
 onMounted(() => {

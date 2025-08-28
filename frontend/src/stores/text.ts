@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import { textService, type SummarizeRequest, type KeywordsRequest, type AnalyzeRequest, type AnalyzeResponse, type Keyword } from '../services/api'
+import { textService, type SummarizeRequest, type KeywordsRequest, type AnalyzeRequest, type AnalyzeResponse } from '../services/api'
 
 export const useTextStore = defineStore('text', () => {
   // State

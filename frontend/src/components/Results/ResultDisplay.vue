@@ -182,7 +182,7 @@ import { ref, computed } from 'vue'
 import { 
   FileText, Tag, Copy, Check, Download, Share2, ChevronRight, Sparkles
 } from 'lucide-vue-next'
-import { useAppStore, type AnalysisResult } from '@/stores/appStore'
+import { type AnalysisResult } from '@/stores/appStore'
 import jsPDF from 'jspdf'
 
 interface Props {
@@ -190,7 +190,7 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-const appStore = useAppStore()
+// const appStore = useAppStore()
 
 const showOriginalText = ref(false)
 const copyStatus = ref<'idle' | 'copied'>('idle')
