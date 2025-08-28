@@ -71,7 +71,7 @@
 
 1. **リポジトリのクローン**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/M-Ito-7310/text-summarizer.git
    cd text-summarizer
    ```
 
