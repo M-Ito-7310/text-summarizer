@@ -25,6 +25,17 @@
             {{ t('home.hero.badges.secure') }}
           </span>
         </div>
+        
+        <!-- Gemini API Data Usage Notice -->
+        <div class="w-full mt-8 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg animate-slide-up text-center" style="animation-delay: 0.6s;">
+          <div class="flex items-center justify-center space-x-4">
+            <Info class="w-8 h-8 text-blue-600 dark:text-blue-400 flex-shrink-0" />
+            <div class="text-base text-blue-800 dark:text-blue-200 text-left">
+              <p class="font-semibold mb-3">{{ t('home.privacy.geminiNotice.title') }}</p>
+              <p>{{ t('home.privacy.geminiNotice.description') }}</p>
+            </div>
+          </div>
+        </div>
       </div>
       
       <!-- Error Alert -->
@@ -266,7 +277,7 @@
       </div>
       
       <!-- Footer Info -->
-      <div class="mt-16 text-center">
+      <div class="mt-16 text-center space-y-4">
         <div class="inline-flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-full">
           <Shield class="w-4 h-4" />
           <span>{{ t('home.privacy.message') }}</span>
@@ -289,7 +300,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { 
-  Zap, Tag, FileText, Clock, Lightbulb, BarChart3, Shield
+  Zap, Tag, FileText, Clock, Lightbulb, BarChart3, Shield, Info
 } from 'lucide-vue-next'
 import { useAppStore, type AnalysisResult } from '@/stores/appStore'
 import { useI18n } from 'vue-i18n'

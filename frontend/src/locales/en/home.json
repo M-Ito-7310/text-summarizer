@@ -78,6 +78,10 @@
     "wordsProcessedEn": "Words"
   },
   "privacy": {
-    "message": "Your data is processed securely and not stored on our servers"
+    "message": "Your data is processed securely and not stored on our servers",
+    "geminiNotice": {
+      "title": "Important AI Processing Information",
+      "description": "This app uses Google Gemini API free tier, and your input text may be used to improve Google's AI models. Please avoid entering sensitive information."
+    }
   }
 }

@@ -78,6 +78,10 @@
     "wordsProcessedEn": "単語数"
   },
   "privacy": {
-    "message": "あなたのデータは安全に処理され、サーバーに保存されません"
+    "message": "あなたのデータは安全に処理され、サーバーに保存されません",
+    "geminiNotice": {
+      "title": "AI処理に関する重要な情報",
+      "description": "このアプリはGoogle Gemini APIの無料版を使用しており、入力されたテキストがGoogleのAI改善に使用される場合があります。機密情報の入力は控えてください。"
+    }
   }
 }
