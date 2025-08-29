@@ -97,7 +97,7 @@ export const useAppStore = defineStore('app', () => {
         id: Date.now().toString(),
         text: text.trim(),
         summary: response.data.data.summary.text,
-        keywords: response.data.data.keywords.list.map((item: any) => item.keyword),
+        keywords: response.data.data.keywords.list.map((item: any) => item.word || item.keyword),
         timestamp: new Date(),
         summaryLength: summaryLength.value
       }

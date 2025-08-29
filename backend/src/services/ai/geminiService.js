@@ -360,7 +360,9 @@ Keywords (JSON format):`;
       const keywords = this.parseKeywords(generatedText, maxKeywords);
       
       logger.info('Gemini: Keyword extraction completed', {
-        keywordCount: keywords.length
+        keywordCount: keywords.length,
+        rawResponse: generatedText.substring(0, 200) + '...',
+        parsedKeywords: keywords.slice(0, 3).map(k => k.word)
       });
 
       return keywords;
