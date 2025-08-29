@@ -6,7 +6,7 @@
         <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-6">
           {{ t('about.title') }}
         </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed whitespace-pre-line">
           {{ t('about.hero.subtitle') }}
         </p>
       </div>

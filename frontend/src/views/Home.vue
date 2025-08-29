@@ -6,7 +6,7 @@
         <h1 class="text-5xl md:text-6xl font-bold gradient-text mb-6 animate-slide-up">
           {{ t('home.hero.title') }}
         </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.2s;">
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed animate-slide-up whitespace-pre-line" style="animation-delay: 0.2s;">
           {{ t('home.hero.subtitle') }}
         </p>
         
