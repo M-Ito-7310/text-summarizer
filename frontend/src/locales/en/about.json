@@ -36,14 +36,11 @@
     "express": {
       "description": "Web Framework"
     },
-    "sqlite": {
+    "postgresql": {
       "description": "Database"
     },
     "gemini": {
       "description": "Large Language Model"
-    },
-    "huggingface": {
-      "description": "ML Models"
     },
     "aiCoordination": {
       "description": "Smart Routing"

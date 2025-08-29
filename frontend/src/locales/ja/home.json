@@ -24,7 +24,7 @@
     "fileUpload": {
       "dropzone": "ファイルをドロップしてアップロード",
       "or": "または",
-      "supports": "対応形式: TXTファイル（最大10MB）"
+      "supports": "対応形式: TXTファイル（最大5MB）"
     },
     "warnings": {
       "longText": "長いテキストは処理に時間がかかる場合があります"

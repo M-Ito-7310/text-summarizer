@@ -54,7 +54,7 @@
     "title": "Error",
     "genericMessage": "Something went wrong. Please try again.",
     "fileType": "Please select a valid file type (TXT)",
-    "fileSize": "File size must be less than 10MB",
+    "fileSize": "File size must be less than 5MB",
     "networkError": "Network error. Please check your connection.",
     "processingError": "Processing error. Please try again."
   },

@@ -24,7 +24,7 @@
     "fileUpload": {
       "dropzone": "Drop files here to upload",
       "or": "or",
-      "supports": "Supports: TXT files (max 10MB)"
+      "supports": "Supports: TXT files (max 5MB)"
     },
     "warnings": {
       "longText": "Long text may take more time to process"
