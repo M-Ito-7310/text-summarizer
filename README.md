@@ -30,10 +30,24 @@ This project demonstrates advanced AI integration, modern web development practi
 - **Multiple Length Options**: Short (50-100), Medium (100-200), Long (200-300) characters
 - **Real-time Processing**: Instant analysis with compression ratio display
 
+#### 📁 **File Processing**
+- **TXT File Support**: Direct text file upload and processing
+- **Drag & Drop Interface**: Modern file upload experience
+- **File Size Limit**: 5MB maximum for optimal processing
+- **Future Support**: PDF and DOCX planned for upcoming releases
+
 #### 🌐 **Language Support**
 - **Japanese Text Processing**: Optimized for Japanese with full Unicode support (Hiragana, Katakana, Kanji)
+- **Bilingual Interface**: Japanese/English UI with vue-i18n
 - **Mixed Language Content**: Handles multilingual documents seamlessly
 - **Smart Phrase Detection**: Identifies technical terms and compound words
+
+#### 🎨 **User Interface**
+- **Modern Design**: Clean, responsive interface with dark/light mode toggle
+- **Interactive Results**: Visual keyword grid with hover effects
+- **File Upload**: Drag & drop interface for TXT files
+- **Processing History**: Local storage with search and export capabilities
+- **Export Options**: PDF export and clipboard sharing functionality
 
 #### 🔧 **AI Integration**
 - **Google Gemini API**: High-performance AI service with 1,500 requests/day free tier
@@ -44,7 +58,10 @@ This project demonstrates advanced AI integration, modern web development practi
 
 ### Frontend
 - **Vue.js 3** with Composition API and TypeScript
-- **Custom CSS** with modern design patterns and responsive layout
+- **Tailwind CSS** for utility-first styling and responsive design
+- **Vue Router** for SPA navigation
+- **Vue I18n** for internationalization (Japanese/English)
+- **Pinia** for state management
 - **Vite** for fast development and optimized production builds
 - **Axios** for API communication with comprehensive error handling
 
@@ -77,8 +94,10 @@ This project demonstrates advanced AI integration, modern web development practi
 
 2. **Install dependencies**
    ```bash
-   npm install
+   # Install frontend dependencies
    cd frontend && npm install
+   
+   # Install backend dependencies
    cd ../backend && npm install
    ```
 
@@ -155,9 +174,13 @@ Content-Type: application/json
 
 ### Additional Endpoints
 - `GET /health` - Health check
-- `GET /api/text/services/status` - AI service status
+- `GET /api/text/services/status` - AI service status  
+- `POST /api/text/services/configure` - AI service configuration
 - `POST /api/text/summarize` - Summarization only
 - `POST /api/text/keywords` - Keyword extraction only
+- `GET /api/file/info` - File upload information
+- `POST /api/file/upload` - File upload and processing
+- `POST /api/file/analyze` - Direct file analysis
 
 ## Development
 
@@ -182,10 +205,17 @@ npm run preview     # Preview production build
 text-summarizer/
 ├── frontend/                 # Vue.js frontend application
 │   ├── src/
-│   │   ├── components/      # Vue components
-│   │   ├── services/       # API client
-│   │   ├── App.vue         # Main application
-│   │   └── style.css       # Global styles
+│   │   ├── components/     # Vue components
+│   │   │   ├── Input/     # Text input and file upload
+│   │   │   ├── Results/   # Analysis results display
+│   │   │   ├── History/   # Processing history
+│   │   │   ├── Layout/    # App layout components
+│   │   │   └── UI/        # Reusable UI components
+│   │   ├── stores/        # Pinia state management
+│   │   ├── locales/       # I18n translation files
+│   │   ├── views/         # Page components
+│   │   ├── router/        # Vue Router configuration
+│   │   └── App.vue        # Main application
 │   └── package.json
 ├── backend/                  # Node.js backend application
 │   ├── src/
@@ -194,10 +224,9 @@ text-summarizer/
 │   │   │   └── ai/        # AI service integration
 │   │   ├── routes/         # API routes
 │   │   ├── middleware/     # Custom middleware
+│   │   ├── config/        # Configuration files
 │   │   └── utils/          # Utilities and logging
 │   └── package.json
-├── docs/                     # Documentation
-├── scripts/                  # Development utilities
 ├── vercel.json              # Deployment configuration
 └── README.md
 ```
@@ -278,16 +307,17 @@ The project is configured for one-click Vercel deployment:
 
 ### Development Workflow
 - **Setup**: Clone repository, install dependencies, configure environment
-- **Testing**: Unit tests with Jest, API integration tests, manual UI testing
+- **Testing**: Backend tests with Jest, API integration tests, manual UI testing
+- **Quality**: ESLint for code quality, TypeScript for frontend type safety
 - **Deployment**: Automatic deployment on push to main, environment variables in Vercel, health check monitoring
 
 ## Future Roadmap
 
 ### Near Term (Phase 4)
-- [ ] **File Upload Support**: PDF, DOCX, TXT processing with drag & drop UI
-- [ ] **Export Functionality**: PDF, Markdown, JSON export options
-- [ ] **Processing History**: Local storage with comparison features
+- [ ] **Enhanced File Support**: PDF and DOCX processing (currently TXT only)
+- [ ] **Advanced Export Options**: Markdown and JSON export formats
 - [ ] **Batch Processing**: Multiple document processing capabilities
+- [ ] **Keyword Search**: Interactive keyword filtering and search
 
 ### Medium Term
 - [ ] **User Authentication**: Account system with saved documents
