@@ -42,7 +42,8 @@
     "lightMode": "Light Mode",
     "characters": "characters",
     "words": "words",
-    "close": "Close"
+    "close": "Close",
+    "keywordsFound": "Keywords Found"
   },
   "errors": {
     "generic": "An unexpected error occurred.",

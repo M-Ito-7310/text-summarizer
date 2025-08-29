@@ -42,7 +42,8 @@
     "lightMode": "ライトモード",
     "characters": "文字",
     "words": "単語",
-    "close": "閉じる"
+    "close": "閉じる",
+    "keywordsFound": "キーワード数"
   },
   "errors": {
     "generic": "予期しないエラーが発生しました。",

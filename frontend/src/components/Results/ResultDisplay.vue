@@ -240,29 +240,17 @@ const exportHTMLToPDF = async () => {
     background: white;
   `
   
-  // Detect language for appropriate labels
-  const hasJapanese = /[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]/.test(props.result.summary + props.result.keywords.join(''))
-  
-  const labels = hasJapanese ? {
-    title: 'テキスト要約結果',
-    generated: '生成日時',
-    summary: '要約',
-    keywords: 'キーワード',
-    statistics: '統計情報',
-    characters: '文字数',
-    words: '単語数',
-    keywordCount: 'キーワード数',
-    compression: '圧縮率'
-  } : {
-    title: 'Text Analysis Results',
-    generated: 'Generated',
-    summary: 'Summary',
-    keywords: 'Keywords',
-    statistics: 'Statistics',
-    characters: 'Characters',
-    words: 'Words',
-    keywordCount: 'Keywords Found',
-    compression: 'Compression Ratio'
+  // Use current UI language for PDF labels (not content language)
+  const labels = {
+    title: t('components.results.title'),
+    generated: languageStore.locale === 'ja' ? '生成日時' : 'Generated',
+    summary: t('components.results.summary'),
+    keywords: t('components.results.keywords'),
+    statistics: languageStore.locale === 'ja' ? '統計情報' : 'Statistics',
+    characters: t('common.common.characters'),
+    words: t('common.common.words'),
+    keywordCount: t('common.common.keywordsFound'),
+    compression: t('components.results.compression')
   }
   
   tempDiv.innerHTML = `
