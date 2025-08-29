@@ -63,7 +63,11 @@
     "title": "Your Activity",
     "totalAnalyses": "Total Analyses",
     "wordsProcessed": "Words Processed",
-    "keywordsFound": "Keywords Found"
+    "keywordsFound": "Keywords Found",
+    "japaneseSummaries": "Japanese Summaries",
+    "englishSummaries": "English Summaries",
+    "sentencesProcessed": "Sentences",
+    "wordsProcessedEn": "Words"
   },
   "privacy": {
     "message": "Your data is processed securely and not stored on our servers"

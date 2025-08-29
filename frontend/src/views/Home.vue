@@ -219,10 +219,35 @@
                 </span>
               </div>
               
+              <!-- Japanese Summaries -->
               <div class="flex justify-between items-center">
-                <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('home.activity.wordsProcessed') }}</span>
+                <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('home.activity.japaneseSummaries') }}</span>
                 <span class="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                  {{ totalWordsProcessed.toLocaleString() }}
+                  {{ appStore.japaneseAnalysesCount }}
+                </span>
+              </div>
+              
+              <!-- Japanese Sentences Processed -->
+              <div v-if="appStore.japaneseAnalysesCount > 0" class="flex justify-between items-center pl-4">
+                <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('home.activity.sentencesProcessed') }}</span>
+                <span class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                  {{ appStore.japaneseSentencesProcessed.toLocaleString() }}
+                </span>
+              </div>
+              
+              <!-- English Summaries -->
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('home.activity.englishSummaries') }}</span>
+                <span class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                  {{ appStore.englishAnalysesCount }}
+                </span>
+              </div>
+              
+              <!-- English Words Processed -->
+              <div v-if="appStore.englishAnalysesCount > 0" class="flex justify-between items-center pl-4">
+                <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('home.activity.wordsProcessedEn') }}</span>
+                <span class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                  {{ appStore.englishWordsProcessed.toLocaleString() }}
                 </span>
               </div>
               
@@ -275,13 +300,6 @@ import LoadingSpinner from '@/components/UI/LoadingSpinner.vue'
 const appStore = useAppStore()
 const { t } = useI18n()
 const inputMode = ref<'text' | 'file'>('file')
-
-const totalWordsProcessed = computed(() => {
-  return appStore.analysisHistory.reduce((total, item) => {
-    const wordCount = item.text.trim() ? item.text.trim().split(/\s+/).length : 0
-    return total + wordCount
-  }, 0)
-})
 
 const totalKeywords = computed(() => {
   return appStore.analysisHistory.reduce((total, item) => {

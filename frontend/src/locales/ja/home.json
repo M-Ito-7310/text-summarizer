@@ -63,7 +63,11 @@
     "title": "あなたの活動",
     "totalAnalyses": "総要約数",
     "wordsProcessed": "処理した単語数",
-    "keywordsFound": "見つかったキーワード"
+    "keywordsFound": "見つかったキーワード",
+    "japaneseSummaries": "日本語の要約",
+    "englishSummaries": "英語の要約",
+    "sentencesProcessed": "文章数",
+    "wordsProcessedEn": "単語数"
   },
   "privacy": {
     "message": "あなたのデータは安全に処理され、サーバーに保存されません"

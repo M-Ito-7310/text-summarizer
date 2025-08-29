@@ -212,6 +212,58 @@ export const useAppStore = defineStore('app', () => {
     currentText.value = text
   }
   
+  // Computed statistics for activity section
+  const japaneseAnalysesCount = computed(() => {
+    return analysisHistory.value.filter(item => {
+      // Count only if text has substantial Japanese content
+      const japaneseChars = (item.text.match(/[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]/g) || []).length
+      const totalChars = item.text.length
+      // Consider as Japanese if more than 10% of characters are Japanese
+      return japaneseChars > 0 && (japaneseChars / totalChars) > 0.1
+    }).length
+  })
+  
+  const englishAnalysesCount = computed(() => {
+    return analysisHistory.value.filter(item => {
+      // Count as English if not substantially Japanese
+      const japaneseChars = (item.text.match(/[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]/g) || []).length
+      const totalChars = item.text.length
+      // Consider as English if less than 10% of characters are Japanese
+      return japaneseChars === 0 || (japaneseChars / totalChars) <= 0.1
+    }).length
+  })
+  
+  const japaneseSentencesProcessed = computed(() => {
+    return analysisHistory.value
+      .filter(item => {
+        // Count only if text has substantial Japanese content (more than just punctuation)
+        const japaneseChars = (item.text.match(/[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]/g) || []).length
+        const totalChars = item.text.length
+        // Consider as Japanese if more than 10% of characters are Japanese
+        return japaneseChars > 0 && (japaneseChars / totalChars) > 0.1
+      })
+      .reduce((total, item) => {
+        if (!item.text.trim()) return total
+        // Count sentences using Japanese punctuation
+        const sentences = item.text.split(/[\u3002\uff01\uff1f]/).filter(s => s.trim().length > 0)
+        return total + sentences.length
+      }, 0)
+  })
+  
+  const englishWordsProcessed = computed(() => {
+    return analysisHistory.value
+      .filter(item => {
+        // Count as English if not substantially Japanese
+        const japaneseChars = (item.text.match(/[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]/g) || []).length
+        const totalChars = item.text.length
+        return japaneseChars === 0 || (japaneseChars / totalChars) <= 0.1
+      })
+      .reduce((total, item) => {
+        if (!item.text.trim()) return total
+        return total + item.text.split(/\s+/).length
+      }, 0)
+  })
+  
   return {
     // State
     isDarkMode,
@@ -228,6 +280,12 @@ export const useAppStore = defineStore('app', () => {
     // Computed
     characterCount,
     wordCount,
+    
+    // Computed Statistics
+    japaneseAnalysesCount,
+    englishAnalysesCount,
+    japaneseSentencesProcessed,
+    englishWordsProcessed,
     
     // Actions
     toggleDarkMode,
