@@ -71,19 +71,24 @@ export const extractKeywords = asyncHandler(async (req, res) => {
 export const analyzeText = asyncHandler(async (req, res) => {
   const { 
     text, 
+    summaryLength,
+    maxLength,
+    minLength,
     summaryOptions = {}, 
     keywordOptions = {}, 
     provider = null 
   } = req.body;
   
-  const { maxLength = 150, minLength = 50 } = summaryOptions;
+  // Use provided lengths or fall back to summaryOptions or defaults
+  const finalMaxLength = maxLength || summaryOptions.maxLength || 150;
+  const finalMinLength = minLength || summaryOptions.minLength || 50;
   const { maxKeywords = 10 } = keywordOptions;
 
-  logger.info(`Full analysis request - Text length: ${text.length}, Summary: ${maxLength}/${minLength}, Keywords: ${maxKeywords}, Provider: ${provider || 'auto'}`);
+  logger.info(`Full analysis request - Text length: ${text.length}, Summary length: ${summaryLength}, Max/Min: ${finalMaxLength}/${finalMinLength}, Keywords: ${maxKeywords}, Provider: ${provider || 'auto'}`);
 
   try {
     const [summaryResult, keywordResult] = await Promise.all([
-      textService.summarizeText(text, { maxLength, minLength, provider }),
+      textService.summarizeText(text, { maxLength: finalMaxLength, minLength: finalMinLength, provider }),
       textService.extractKeywords(text, { maxKeywords, provider })
     ]);
     

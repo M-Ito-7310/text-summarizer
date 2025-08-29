@@ -15,11 +15,19 @@
   "input": {
     "title": "Input Text",
     "placeholder": "Enter your text here for summarization and keyword extraction...",
-    "lengthLabel": "Length:",
+    "lengthLabel": "Summary Length:",
     "lengthOptions": {
       "short": "Short",
       "medium": "Medium",
-      "long": "Long"
+      "long": "Long",
+      "shortDesc": "50-100 chars",
+      "mediumDesc": "100-200 chars",
+      "longDesc": "200-400 chars"
+    },
+    "lengthTooltip": {
+      "short": "Concise summary with key points only (50-100 characters)",
+      "medium": "Balanced summary with main content (100-200 characters)",
+      "long": "Comprehensive summary with details (200-400 characters)"
     },
     "fileUpload": {
       "dropzone": "Drop files here to upload",

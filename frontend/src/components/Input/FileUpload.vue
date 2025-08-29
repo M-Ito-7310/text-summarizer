@@ -6,8 +6,30 @@
         <span>{{ t('home.tabs.fileUpload') }}</span>
       </h2>
       
+      <!-- Summary Length Selector -->
+      <div class="flex items-center space-x-3">
+        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{{ t('home.input.lengthLabel') }}</span>
+        <select 
+          v-model="appStore.summaryLength"
+          class="text-sm border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          :title="t(`home.input.lengthTooltip.${appStore.summaryLength}`)"
+        >
+          <option value="short" :title="t('home.input.lengthTooltip.short')">
+            {{ t('home.input.lengthOptions.short') }} ({{ t('home.input.lengthOptions.shortDesc') }})
+          </option>
+          <option value="medium" :title="t('home.input.lengthTooltip.medium')">
+            {{ t('home.input.lengthOptions.medium') }} ({{ t('home.input.lengthOptions.mediumDesc') }})
+          </option>
+          <option value="long" :title="t('home.input.lengthTooltip.long')">
+            {{ t('home.input.lengthOptions.long') }} ({{ t('home.input.lengthOptions.longDesc') }})
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Clear File Button -->
+    <div v-if="uploadedFile" class="flex justify-end mb-4">
       <button
-        v-if="uploadedFile"
         @click="clearFile"
         class="text-sm text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300 transition-colors"
       >

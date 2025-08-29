@@ -93,8 +93,17 @@ export const useAppStore = defineStore('app', () => {
       processingStatus.value.isLoading = true
       updateProcessingStatus('Preparing text analysis...', 10)
       
+      // Map summary length to character limits
+      const lengthConfig = {
+        short: { minLength: 50, maxLength: 100 },
+        medium: { minLength: 100, maxLength: 200 },
+        long: { minLength: 200, maxLength: 400 }
+      }
+      
       const response = await axios.post(`${API_BASE_URL}/text/analyze`, {
-        text: text.trim()
+        text: text.trim(),
+        summaryLength: summaryLength.value,
+        ...lengthConfig[summaryLength.value]
       })
       
       updateProcessingStatus('Processing with AI...', 50)

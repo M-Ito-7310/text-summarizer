@@ -11,10 +11,17 @@
         <select 
           v-model="appStore.summaryLength"
           class="text-sm border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          :title="t(`home.input.lengthTooltip.${appStore.summaryLength}`)"
         >
-          <option value="short">{{ t('home.input.lengthOptions.short') }}</option>
-          <option value="medium">{{ t('home.input.lengthOptions.medium') }}</option>
-          <option value="long">{{ t('home.input.lengthOptions.long') }}</option>
+          <option value="short" :title="t('home.input.lengthTooltip.short')">
+            {{ t('home.input.lengthOptions.short') }} ({{ t('home.input.lengthOptions.shortDesc') }})
+          </option>
+          <option value="medium" :title="t('home.input.lengthTooltip.medium')">
+            {{ t('home.input.lengthOptions.medium') }} ({{ t('home.input.lengthOptions.mediumDesc') }})
+          </option>
+          <option value="long" :title="t('home.input.lengthTooltip.long')">
+            {{ t('home.input.lengthOptions.long') }} ({{ t('home.input.lengthOptions.longDesc') }})
+          </option>
         </select>
       </div>
     </div>
