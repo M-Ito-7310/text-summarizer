@@ -52,11 +52,11 @@
           {{ t('about.technology.title') }}
         </h2>
         
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="space-y-8">
           <!-- Frontend -->
-          <div class="space-y-4">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ t('about.technology.frontend') }}</h3>
-            <div class="space-y-3">
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">{{ t('about.technology.frontend') }}</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div class="flex items-center space-x-3">
                 <div class="w-8 h-8 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center">
                   <span class="text-green-600 dark:text-green-400 font-bold text-sm">V</span>
@@ -90,9 +90,9 @@
           </div>
           
           <!-- Backend -->
-          <div class="space-y-4">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ t('about.technology.backend') }}</h3>
-            <div class="space-y-3">
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">{{ t('about.technology.backend') }}</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div class="flex items-center space-x-3">
                 <div class="w-8 h-8 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center">
                   <span class="text-green-600 dark:text-green-400 font-bold text-sm">N</span>
@@ -115,20 +115,20 @@
               
               <div class="flex items-center space-x-3">
                 <div class="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center">
-                  <span class="text-blue-600 dark:text-blue-400 font-bold text-sm">S</span>
+                  <span class="text-blue-600 dark:text-blue-400 font-bold text-sm">P</span>
                 </div>
                 <div>
-                  <p class="text-sm font-medium text-gray-900 dark:text-gray-100">SQLite</p>
-                  <p class="text-xs text-gray-600 dark:text-gray-400">{{ t('about.technology.sqlite.description') }}</p>
+                  <p class="text-sm font-medium text-gray-900 dark:text-gray-100">PostgreSQL</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">{{ t('about.technology.postgresql.description') }}</p>
                 </div>
               </div>
             </div>
           </div>
           
-          <!-- AI/ML -->
-          <div class="space-y-4">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ t('about.technology.aiIntegration') }}</h3>
-            <div class="space-y-3">
+          <!-- AI Integration -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">{{ t('about.technology.aiIntegration') }}</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="flex items-center space-x-3">
                 <div class="w-8 h-8 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center">
                   <span class="text-purple-600 dark:text-purple-400 font-bold text-sm">G</span>
@@ -140,18 +140,8 @@
               </div>
               
               <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center">
-                  <span class="text-yellow-600 dark:text-yellow-400 font-bold text-sm">H</span>
-                </div>
-                <div>
-                  <p class="text-sm font-medium text-gray-900 dark:text-gray-100">Hugging Face</p>
-                  <p class="text-xs text-gray-600 dark:text-gray-400">{{ t('about.technology.huggingface.description') }}</p>
-                </div>
-              </div>
-              
-              <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center">
-                  <span class="text-red-600 dark:text-red-400 font-bold text-sm">A</span>
+                <div class="w-8 h-8 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center">
+                  <span class="text-orange-600 dark:text-orange-400 font-bold text-sm">AI</span>
                 </div>
                 <div>
                   <p class="text-sm font-medium text-gray-900 dark:text-gray-100">AI Coordination</p>
@@ -273,30 +263,46 @@
             <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
               {{ t('about.api.endpoints.title') }}
             </h3>
-            <div class="space-y-3 font-mono text-sm">
-              <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
-                <span class="text-gray-600 dark:text-gray-400 ml-2">/api/text/summarize</span>
+            <div class="space-y-4 font-mono text-sm">
+              <!-- Text Processing Endpoints -->
+              <div>
+                <h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">テキスト処理</h4>
+                <div class="grid grid-cols-1 gap-2">
+                  <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                    <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
+                    <span class="text-gray-600 dark:text-gray-400 ml-2">/api/text/summarize</span>
+                  </div>
+                  <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                    <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
+                    <span class="text-gray-600 dark:text-gray-400 ml-2">/api/text/keywords</span>
+                  </div>
+                  <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                    <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
+                    <span class="text-gray-600 dark:text-gray-400 ml-2">/api/text/analyze</span>
+                  </div>
+                </div>
               </div>
-              <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
-                <span class="text-gray-600 dark:text-gray-400 ml-2">/api/text/keywords</span>
+              <!-- File Processing Endpoints -->
+              <div>
+                <h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">ファイル処理</h4>
+                <div class="grid grid-cols-1 gap-2">
+                  <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                    <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
+                    <span class="text-gray-600 dark:text-gray-400 ml-2">/api/files/upload</span>
+                  </div>
+                  <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                    <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
+                    <span class="text-gray-600 dark:text-gray-400 ml-2">/api/files/analyze</span>
+                  </div>
+                </div>
               </div>
-              <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
-                <span class="text-gray-600 dark:text-gray-400 ml-2">/api/text/analyze</span>
-              </div>
-              <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
-                <span class="text-gray-600 dark:text-gray-400 ml-2">/api/files/upload</span>
-              </div>
-              <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
-                <span class="text-gray-600 dark:text-gray-400 ml-2">/api/files/analyze</span>
-              </div>
-              <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                <span class="text-blue-600 dark:text-blue-400 font-semibold">GET</span>
-                <span class="text-gray-600 dark:text-gray-400 ml-2">/health</span>
+              <!-- System Endpoints -->
+              <div>
+                <h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">システム</h4>
+                <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                  <span class="text-blue-600 dark:text-blue-400 font-semibold">GET</span>
+                  <span class="text-gray-600 dark:text-gray-400 ml-2">/health</span>
+                </div>
               </div>
             </div>
           </div>
