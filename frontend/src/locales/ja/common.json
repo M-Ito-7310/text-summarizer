@@ -23,7 +23,8 @@
     "learnMore": "詳しく見る",
     "loadSample": "サンプルテキストを読み込む",
     "chooseFiles": "ファイルを選択",
-    "useAsInput": "入力として使用"
+    "useAsInput": "入力として使用",
+    "downloadSample": "test-sample.txtをダウンロード"
   },
   "status": {
     "online": "オンライン",

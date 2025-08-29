@@ -146,6 +146,16 @@
       </div>
     </div>
 
+    <!-- Sample File Download -->
+    <div class="mt-4 text-center">
+      <button
+        @click="downloadSampleFile"
+        class="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline"
+      >
+        {{ t('common.buttons.downloadSample') }}
+      </button>
+    </div>
+
     <!-- Supported Formats -->
     <div class="mt-6 grid grid-cols-3 gap-4 text-center">
       <div class="flex flex-col items-center space-y-2 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
@@ -336,6 +346,28 @@ const formatFileSize = (bytes: number): string => {
   const i = Math.floor(Math.log(bytes) / Math.log(k))
   
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
+}
+
+const downloadSampleFile = () => {
+  const sampleText = `Artificial Intelligence (AI) has emerged as one of the most transformative technologies of the 21st century, revolutionizing industries from healthcare to finance, transportation to entertainment. At its core, AI refers to the development of computer systems that can perform tasks typically requiring human intelligence, such as visual perception, speech recognition, decision-making, and language translation.
+
+Machine learning, a subset of AI, enables computers to learn and improve from experience without being explicitly programmed for every task. This approach has led to breakthrough applications like recommendation systems used by streaming platforms, fraud detection in banking, and diagnostic tools in medicine that can identify diseases from medical images with remarkable accuracy.
+
+Deep learning, which uses artificial neural networks inspired by the human brain, has been particularly successful in areas like image recognition and natural language processing. Companies like Google, Amazon, and Microsoft have integrated these technologies into everyday products, making AI accessible to billions of people worldwide.
+
+However, the rapid advancement of AI also raises important ethical questions about privacy, job displacement, and the need for responsible development. As we continue to push the boundaries of what machines can do, it becomes crucial to ensure that AI development serves humanity's best interests while addressing potential risks and challenges.
+
+The future of AI holds immense promise, with potential applications in climate change mitigation, space exploration, and solving complex global challenges that require processing vast amounts of data and identifying patterns beyond human capability.`
+
+  const blob = new Blob([sampleText], { type: 'text/plain' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = 'test-sample.txt'
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  URL.revokeObjectURL(url)
 }
 
 // Prevent default drag behavior on the entire document

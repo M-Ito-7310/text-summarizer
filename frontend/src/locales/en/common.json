@@ -23,7 +23,8 @@
     "learnMore": "Learn More",
     "loadSample": "Load sample text",
     "chooseFiles": "Choose Files",
-    "useAsInput": "Use as Input"
+    "useAsInput": "Use as Input",
+    "downloadSample": "Download test-sample.txt"
   },
   "status": {
     "online": "online",
