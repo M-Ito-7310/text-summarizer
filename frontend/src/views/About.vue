@@ -319,7 +319,7 @@
               <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300">
                 {{ t('about.api.performance.responseTime') }}
               </h3>
-              <p class="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-1">~2-5秒</p>
+              <p class="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-1">2~5秒</p>
             </div>
             <div class="text-blue-500 dark:text-blue-400">
               <Clock class="w-8 h-8" />
