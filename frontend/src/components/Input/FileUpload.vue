@@ -112,7 +112,7 @@
           
           <div class="flex justify-center space-x-4 text-xs text-gray-500 dark:text-gray-400">
             <span>{{ uploadedFile.metadata.characterCount.toLocaleString() }} {{ t('common.common.characters') }}</span>
-            <span>{{ uploadedFile.metadata.wordCount.toLocaleString() }} {{ t('common.common.words') }}</span>
+            <span>{{ getCorrectWordCount(uploadedFile.textContent).toLocaleString() }} {{ getWordCountLabel(uploadedFile.textContent) }}</span>
           </div>
         </div>
 
@@ -346,6 +346,31 @@ const formatFileSize = (bytes: number): string => {
   const i = Math.floor(Math.log(bytes) / Math.log(k))
   
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
+}
+
+const getCorrectWordCount = (text: string): number => {
+  if (!text || !text.trim()) return 0
+  
+  // Detect if text contains Japanese characters
+  const hasJapanese = /[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]/.test(text)
+  
+  if (hasJapanese) {
+    // For Japanese: count sentences by splitting on Japanese punctuation
+    const sentences = text.split(/[\u3002\uff01\uff1f]/).filter(s => s.trim().length > 0)
+    return sentences.length
+  } else {
+    // For English: count words by splitting on spaces
+    return text.trim().split(/\s+/).length
+  }
+}
+
+const getWordCountLabel = (text: string): string => {
+  if (!text) return t('common.common.words')
+  
+  // Detect if text contains Japanese characters
+  const hasJapanese = /[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]/.test(text)
+  
+  return hasJapanese ? t('common.common.sentences') : t('common.common.words')
 }
 
 const downloadSampleFile = () => {
