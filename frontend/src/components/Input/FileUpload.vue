@@ -158,33 +158,36 @@
 
     <!-- Supported Formats -->
     <div class="mt-6 grid grid-cols-3 gap-4 text-center">
-      <div class="flex flex-col items-center space-y-2 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+      <!-- TXT - Currently Supported -->
+      <div class="flex flex-col items-center space-y-2 p-3 bg-green-50 dark:bg-green-900 rounded-lg border-2 border-green-200 dark:border-green-700">
+        <div class="w-8 h-8 bg-green-100 dark:bg-green-900 rounded flex items-center justify-center">
+          <FileText class="w-4 h-4 text-green-600 dark:text-green-400" />
+        </div>
+        <div>
+          <p class="text-sm font-medium text-green-800 dark:text-green-200">TXT</p>
+          <p class="text-xs text-green-600 dark:text-green-400">{{ t('components.fileTypes.plainText') }}</p>
+        </div>
+      </div>
+
+      <!-- PDF - Coming Soon -->
+      <div class="flex flex-col items-center space-y-2 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg opacity-60">
         <div class="w-8 h-8 bg-red-100 dark:bg-red-900 rounded flex items-center justify-center">
           <FileText class="w-4 h-4 text-red-600 dark:text-red-400" />
         </div>
         <div>
           <p class="text-sm font-medium text-gray-900 dark:text-gray-100">PDF</p>
-          <p class="text-xs text-gray-500 dark:text-gray-400">{{ t('components.fileTypes.documents') }}</p>
+          <p class="text-xs text-gray-500 dark:text-gray-400">{{ t('components.fileTypes.comingSoon') }}</p>
         </div>
       </div>
 
-      <div class="flex flex-col items-center space-y-2 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+      <!-- DOCX - Coming Soon -->
+      <div class="flex flex-col items-center space-y-2 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg opacity-60">
         <div class="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded flex items-center justify-center">
           <FileText class="w-4 h-4 text-blue-600 dark:text-blue-400" />
         </div>
         <div>
           <p class="text-sm font-medium text-gray-900 dark:text-gray-100">DOCX</p>
-          <p class="text-xs text-gray-500 dark:text-gray-400">{{ t('components.fileTypes.wordDocs') }}</p>
-        </div>
-      </div>
-
-      <div class="flex flex-col items-center space-y-2 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-        <div class="w-8 h-8 bg-green-100 dark:bg-green-900 rounded flex items-center justify-center">
-          <FileText class="w-4 h-4 text-green-600 dark:text-green-400" />
-        </div>
-        <div>
-          <p class="text-sm font-medium text-gray-900 dark:text-gray-100">TXT</p>
-          <p class="text-xs text-gray-500 dark:text-gray-400">{{ t('components.fileTypes.plainText') }}</p>
+          <p class="text-xs text-gray-500 dark:text-gray-400">{{ t('components.fileTypes.comingSoon') }}</p>
         </div>
       </div>
     </div>

@@ -64,7 +64,8 @@
   "fileTypes": {
     "documents": "Documents",
     "wordDocs": "Word Docs",
-    "plainText": "Plain Text"
+    "plainText": "Plain Text",
+    "comingSoon": "Coming Soon"
   },
   "ui": {
     "errorAlert": {

@@ -64,7 +64,8 @@
   "fileTypes": {
     "documents": "ドキュメント",
     "wordDocs": "Wordドキュメント",
-    "plainText": "プレーンテキスト"
+    "plainText": "プレーンテキスト",
+    "comingSoon": "今後実装予定"
   },
   "ui": {
     "errorAlert": {

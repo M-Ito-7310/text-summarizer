@@ -50,7 +50,7 @@
     },
     "fileSupport": {
       "title": "File Support",
-      "description": "Upload and summarize PDF, DOCX, and TXT files with drag & drop support."
+      "description": "Upload and summarize TXT files with drag & drop support. PDF and DOCX support coming soon."
     },
     "history": {
       "title": "History & Export",

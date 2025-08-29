@@ -50,7 +50,7 @@
     },
     "fileSupport": {
       "title": "ファイル対応",
-      "description": "ドラッグ＆ドロップ対応でPDF、DOCX、TXTファイルをアップロードして要約できます。"
+      "description": "ドラッグ＆ドロップ対応でTXTファイルをアップロードして要約できます。PDF・DOCX対応も近日公開予定です。"
     },
     "history": {
       "title": "履歴 & エクスポート",
