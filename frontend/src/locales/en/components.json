@@ -68,5 +68,26 @@
     "documents": "Documents",
     "wordDocs": "Word Docs",
     "plainText": "Plain Text"
+  },
+  "ui": {
+    "errorAlert": {
+      "close": "Close",
+      "dismiss": "Dismiss",
+      "retry": "Retry"
+    },
+    "loadingSpinner": {
+      "loading": "Loading",
+      "processing": "Processing",
+      "analyzing": "Analyzing",
+      "uploading": "Uploading",
+      "preparing": "Preparing"
+    },
+    "accessibility": {
+      "closeButton": "Close button",
+      "menuToggle": "Toggle menu",
+      "languageSelector": "Select language",
+      "darkModeToggle": "Toggle dark mode",
+      "loading": "Loading"
+    }
   }
 }

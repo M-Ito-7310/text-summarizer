@@ -68,5 +68,26 @@
     "documents": "ドキュメント",
     "wordDocs": "Wordドキュメント",
     "plainText": "プレーンテキスト"
+  },
+  "ui": {
+    "errorAlert": {
+      "close": "閉じる",
+      "dismiss": "非表示",
+      "retry": "再試行"
+    },
+    "loadingSpinner": {
+      "loading": "読み込み中",
+      "processing": "処理中",
+      "analyzing": "分析中",
+      "uploading": "アップロード中",
+      "preparing": "準備中"
+    },
+    "accessibility": {
+      "closeButton": "閉じるボタン",
+      "menuToggle": "メニューを切り替える",
+      "languageSelector": "言語を選択",
+      "darkModeToggle": "ダークモードを切り替える",
+      "loading": "読み込み中です"
+    }
   }
 }

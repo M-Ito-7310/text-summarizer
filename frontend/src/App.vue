@@ -33,7 +33,7 @@
               <button
                 @click="toggleLanguageMenu"
                 class="flex items-center justify-center px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors min-w-[50px]"
-                aria-label="Change language"
+:aria-label="t('components.ui.accessibility.languageSelector')"
               >
                 <span class="text-sm font-medium text-gray-600 dark:text-gray-400">
                   {{ languageStore.currentLanguageInfo?.code?.toUpperCase() || 'JA' }}
@@ -64,7 +64,7 @@
             <button
               @click="appStore.toggleDarkMode()"
               class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-              title="Toggle dark mode"
+:title="t('components.ui.accessibility.darkModeToggle')"
             >
               <Sun v-if="appStore.isDarkMode" class="w-5 h-5" />
               <Moon v-else class="w-5 h-5" />

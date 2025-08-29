@@ -32,7 +32,10 @@
     "checking": "確認中",
     "processing": "処理中",
     "analyzing": "分析中...",
-    "loading": "読み込み中..."
+    "loading": "読み込み中...",
+    "validating": "検証中...",
+    "uploading": "アップロード中...",
+    "complete": "処理完了！"
   },
   "common": {
     "language": "言語",
@@ -41,5 +44,15 @@
     "characters": "文字",
     "words": "単語",
     "close": "閉じる"
+  },
+  "errors": {
+    "generic": "予期しないエラーが発生しました。",
+    "network": "ネットワークエラー。接続を確認してください。",
+    "fileSize": "ファイルサイズが大きすぎます。最大サイズは5MBです。",
+    "fileType": "サポートされていないファイル形式です。PDF、DOCX、TXTファイルのみ許可されています。",
+    "upload": "ファイルのアップロードに失敗しました。",
+    "processing": "処理中にエラーが発生しました。",
+    "analysis": "テキスト分析に失敗しました。",
+    "timeout": "リクエストがタイムアウトしました。もう一度お試しください。"
   }
 }

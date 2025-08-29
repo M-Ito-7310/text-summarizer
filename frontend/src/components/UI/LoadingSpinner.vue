@@ -46,12 +46,12 @@
     </div>
     
     <!-- Loading Text -->
-    <div v-if="text" class="ml-3 space-y-1">
+    <div v-if="displayText" class="ml-3 space-y-1">
       <p :class="textSizeClasses[size]" class="font-medium text-gray-900 dark:text-gray-100">
-        {{ text }}
+        {{ displayText }}
       </p>
-      <p v-if="subtext" :class="subtextSizeClasses[size]" class="text-gray-600 dark:text-gray-400">
-        {{ subtext }}
+      <p v-if="displaySubtext" :class="subtextSizeClasses[size]" class="text-gray-600 dark:text-gray-400">
+        {{ displaySubtext }}
       </p>
     </div>
   </div>
@@ -59,6 +59,9 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 export interface Props {
   show?: boolean
@@ -80,6 +83,18 @@ const containerClass = computed(() => {
     return 'fixed inset-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50'
   }
   return 'p-4'
+})
+
+// Computed display text with fallback to translations
+const displayText = computed(() => {
+  if (props.text) return props.text
+  // Default loading text based on context
+  return t('components.ui.loadingSpinner.loading')
+})
+
+const displaySubtext = computed(() => {
+  if (props.subtext) return props.subtext
+  return undefined
 })
 
 const sizeClasses = {

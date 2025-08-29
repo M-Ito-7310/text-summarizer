@@ -49,7 +49,7 @@
               <button
                 @click="showLanguageMenu = !showLanguageMenu"
                 class="flex items-center space-x-2 p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-                aria-label="Change language"
+:aria-label="t('components.ui.accessibility.languageSelector')"
                 style="min-width: 60px;"
               >
                 <span class="text-lg">{{ languageStore.currentLanguageInfo?.flag || '🇯🇵' }}</span>
@@ -81,7 +81,7 @@
             <button
               @click="appStore.toggleDarkMode()"
               class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-              aria-label="Toggle dark mode"
+:aria-label="t('components.ui.accessibility.darkModeToggle')"
             >
               <Moon v-if="!appStore.isDarkMode" class="w-5 h-5 text-gray-600 dark:text-gray-400" />
               <Sun v-else class="w-5 h-5 text-gray-600 dark:text-gray-400" />
@@ -91,7 +91,7 @@
             <button
               @click="mobileMenuOpen = !mobileMenuOpen"
               class="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-              aria-label="Toggle menu"
+:aria-label="t('components.ui.accessibility.menuToggle')"
             >
               <Menu v-if="!mobileMenuOpen" class="w-5 h-5" />
               <X v-else class="w-5 h-5" />

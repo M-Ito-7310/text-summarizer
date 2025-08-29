@@ -231,7 +231,7 @@ const handleFileSelect = (e: Event) => {
 const processFile = async (file: File) => {
   error.value = null
   isProcessing.value = true
-  processingStatus.value = 'Validating file...'
+  processingStatus.value = t('common.status.validating')
 
   try {
     // Validate file type
@@ -240,15 +240,15 @@ const processFile = async (file: File) => {
     const fileExtension = '.' + file.name.split('.').pop()?.toLowerCase()
 
     if (!allowedTypes.includes(file.type) && !allowedExtensions.includes(fileExtension)) {
-      throw new Error('Unsupported file type. Only PDF, DOCX, and TXT files are allowed.')
+      throw new Error(t('common.errors.fileType'))
     }
 
     // Validate file size (5MB)
     if (file.size > 5 * 1024 * 1024) {
-      throw new Error('File too large. Maximum size is 5MB.')
+      throw new Error(t('common.errors.fileSize'))
     }
 
-    processingStatus.value = 'Uploading file...'
+    processingStatus.value = t('common.status.uploading')
 
     const formData = new FormData()
     formData.append('file', file)
@@ -265,7 +265,7 @@ const processFile = async (file: File) => {
       }
     })
 
-    processingStatus.value = 'Processing complete!'
+    processingStatus.value = t('common.status.complete')
 
     uploadedFile.value = response.data.data
     emit('fileUploaded', response.data.data)

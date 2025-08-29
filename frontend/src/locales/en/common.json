@@ -32,7 +32,10 @@
     "checking": "checking",
     "processing": "Processing",
     "analyzing": "Analyzing...",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "validating": "Validating file...",
+    "uploading": "Uploading file...",
+    "complete": "Processing complete!"
   },
   "common": {
     "language": "Language",
@@ -41,5 +44,15 @@
     "characters": "characters",
     "words": "words",
     "close": "Close"
+  },
+  "errors": {
+    "generic": "An unexpected error occurred.",
+    "network": "Network error. Please check your connection.",
+    "fileSize": "File too large. Maximum size is 5MB.",
+    "fileType": "Unsupported file type. Only PDF, DOCX, and TXT files are allowed.",
+    "upload": "File upload failed.",
+    "processing": "An error occurred during processing.",
+    "analysis": "Text analysis failed.",
+    "timeout": "Request timed out. Please try again."
   }
 }

@@ -52,7 +52,7 @@
             :class="closeButtonClasses[type]"
             class="inline-flex rounded-md p-1.5 hover:bg-opacity-20 focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors"
           >
-            <span class="sr-only">Close</span>
+            <span class="sr-only">{{ t('components.ui.accessibility.closeButton') }}</span>
             <X class="w-4 h-4" />
           </button>
         </div>
@@ -78,6 +78,9 @@
 <script setup lang="ts">
 import { ref, watch, onUnmounted } from 'vue'
 import { XCircle, AlertTriangle, CheckCircle, Info, X } from 'lucide-vue-next'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 export interface Props {
   show?: boolean
