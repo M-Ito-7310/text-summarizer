@@ -37,7 +37,20 @@ export const useAppStore = defineStore('app', () => {
   // Computed
   const characterCount = computed(() => currentText.value.length)
   const wordCount = computed(() => {
-    return currentText.value.trim() ? currentText.value.trim().split(/\s+/).length : 0
+    const text = currentText.value.trim()
+    if (!text) return 0
+    
+    // Detect if text contains Japanese characters
+    const hasJapanese = /[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]/.test(text)
+    
+    if (hasJapanese) {
+      // For Japanese: count sentences (split by 。！？)
+      const sentences = text.split(/[。！？]/).filter(s => s.trim().length > 0)
+      return sentences.length
+    } else {
+      // For English: count words (split by spaces)
+      return text.split(/\s+/).length
+    }
   })
   
   // Actions

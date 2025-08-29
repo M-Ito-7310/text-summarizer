@@ -43,7 +43,9 @@
     "characters": "characters",
     "words": "words",
     "close": "Close",
-    "keywordsFound": "Keywords Found"
+    "keywordsFound": "Keywords Found",
+    "sentences": "sentences",
+    "sentenceCount": "Sentences"
   },
   "errors": {
     "generic": "An unexpected error occurred.",

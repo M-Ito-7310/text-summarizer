@@ -135,7 +135,9 @@
           <div class="text-lg font-semibold text-green-600 dark:text-green-400">
             {{ languageStore.formatNumber(wordCount) }}
           </div>
-          <div class="text-xs text-green-600/70 dark:text-green-400/70">{{ t('common.common.words') }}</div>
+          <div class="text-xs text-green-600/70 dark:text-green-400/70">
+            {{ /[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]/.test(result?.text || '') ? t('common.common.sentences') : t('common.common.words') }}
+          </div>
         </div>
         
         <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-3">
@@ -248,7 +250,7 @@ const exportHTMLToPDF = async () => {
     keywords: t('components.results.keywords'),
     statistics: languageStore.locale === 'ja' ? '統計情報' : 'Statistics',
     characters: t('common.common.characters'),
-    words: t('common.common.words'),
+    words: hasJapanese ? t('common.common.sentenceCount') : t('common.common.words'),
     keywordCount: t('common.common.keywordsFound'),
     compression: t('components.results.compression')
   }

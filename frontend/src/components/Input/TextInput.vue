@@ -34,7 +34,7 @@
         <div class="flex justify-between items-center mt-2 text-sm text-gray-500 dark:text-gray-400">
           <div class="flex space-x-4">
             <span>{{ appStore.characterCount.toLocaleString() }} {{ t('common.common.characters') }}</span>
-            <span>{{ appStore.wordCount.toLocaleString() }} {{ t('common.common.words') }}</span>
+            <span>{{ appStore.wordCount.toLocaleString() }} {{ /[\\u3040-\\u309f\\u30a0-\\u30ff\\u4e00-\\u9faf]/.test(appStore.currentText) ? t('common.common.sentences') : t('common.common.words') }}</span>
           </div>
           <div v-if="appStore.characterCount > 10000" class="text-amber-600 dark:text-amber-400">
             {{ t('home.input.warnings.longText') }}
