@@ -26,6 +26,7 @@
     "more": "more",
     "chars": "chars",
     "words": "words",
+    "sentences": "sentences",
     "keywords": "keywords",
     "actions": {
       "load": "Load this summary",

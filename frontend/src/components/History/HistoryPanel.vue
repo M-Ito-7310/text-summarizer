@@ -107,7 +107,7 @@
         <div class="flex justify-between items-center mt-3 pt-3 border-t border-gray-200 dark:border-gray-600">
           <div class="flex space-x-4 text-xs text-gray-500 dark:text-gray-400">
             <span>{{ languageStore.formatNumber(item.text.length) }} {{ t('components.history.chars') }}</span>
-            <span>{{ languageStore.formatNumber(getWordCount(item.text)) }} {{ t('components.history.words') }}</span>
+            <span>{{ languageStore.formatNumber(getWordCount(item.text)) }} {{ /[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]/.test(item.text) ? t('components.history.sentences') : t('components.history.words') }}</span>
             <span>{{ item.keywords.length }} {{ t('components.history.keywords') }}</span>
           </div>
           
@@ -198,7 +198,19 @@ const getPreviewTitle = (text: string) => {
 }
 
 const getWordCount = (text: string) => {
-  return text.trim() ? text.trim().split(/\s+/).length : 0
+  if (!text.trim()) return 0
+  
+  // Detect if text contains Japanese characters
+  const hasJapanese = /[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]/.test(text)
+  
+  if (hasJapanese) {
+    // For Japanese: count sentences by splitting on Japanese punctuation
+    const sentences = text.split(/[\u3002\uff01\uff1f]/).filter(s => s.trim().length > 0)
+    return sentences.length
+  } else {
+    // For English: count words by splitting on spaces
+    return text.trim().split(/\s+/).length
+  }
 }
 
 const formatDate = (date: Date) => {

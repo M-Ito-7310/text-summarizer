@@ -26,6 +26,7 @@
     "more": "その他",
     "chars": "文字",
     "words": "単語",
+    "sentences": "文章",
     "keywords": "キーワード",
     "actions": {
       "load": "この要約を読み込む",
