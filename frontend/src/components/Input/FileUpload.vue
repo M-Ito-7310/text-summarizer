@@ -349,15 +349,15 @@ const formatFileSize = (bytes: number): string => {
 }
 
 const downloadSampleFile = () => {
-  const sampleText = `Artificial Intelligence (AI) has emerged as one of the most transformative technologies of the 21st century, revolutionizing industries from healthcare to finance, transportation to entertainment. At its core, AI refers to the development of computer systems that can perform tasks typically requiring human intelligence, such as visual perception, speech recognition, decision-making, and language translation.
+  const sampleText = `人工知能（AI）技術の急速な発展により、我々の日常生活は大きく変わりつつあります。機械学習アルゴリズムは、データから自動的にパターンを学習し、人間の判断を補完する役割を果たしています。
 
-Machine learning, a subset of AI, enables computers to learn and improve from experience without being explicitly programmed for every task. This approach has led to breakthrough applications like recommendation systems used by streaming platforms, fraud detection in banking, and diagnostic tools in medicine that can identify diseases from medical images with remarkable accuracy.
+自然言語処理技術の進歩により、コンピューターは人間の言葉を理解し、適切な応答を生成できるようになりました。これにより、チャットボットや音声アシスタントなどのアプリケーションが実用化されています。
 
-Deep learning, which uses artificial neural networks inspired by the human brain, has been particularly successful in areas like image recognition and natural language processing. Companies like Google, Amazon, and Microsoft have integrated these technologies into everyday products, making AI accessible to billions of people worldwide.
+画像認識技術も飛躍的に向上し、医療診断、自動運転、セキュリティシステムなど、様々な分野で活用されています。深層学習の発達により、従来では不可能だった複雑な問題の解決が可能になっています。
 
-However, the rapid advancement of AI also raises important ethical questions about privacy, job displacement, and the need for responsible development. As we continue to push the boundaries of what machines can do, it becomes crucial to ensure that AI development serves humanity's best interests while addressing potential risks and challenges.
+しかし、AI技術の発展には倫理的な課題も伴います。プライバシーの保護、偏見の排除、雇用への影響など、社会全体で考慮すべき問題が数多く存在します。技術の進歩と社会的責任のバランスを取ることが、持続可能なAI社会を実現するための重要な鍵となるでしょう。
 
-The future of AI holds immense promise, with potential applications in climate change mitigation, space exploration, and solving complex global challenges that require processing vast amounts of data and identifying patterns beyond human capability.`
+今後、AI技術はさらに高度化し、人間とAIが協働する新しい社会モデルが構築されることが期待されています。教育、ヘルスケア、エンターテインメントなど、あらゆる分野でAIの活用が進み、より豊かで便利な生活が実現されるでしょう。`
 
   const blob = new Blob([sampleText], { type: 'text/plain' })
   const url = URL.createObjectURL(blob)
