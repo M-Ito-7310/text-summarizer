@@ -251,79 +251,102 @@
         </div>
       </div>
       
-      <!-- API Information -->
+      <!-- API Endpoints -->
       <div class="card p-8 mb-12">
         <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center">
           <Globe class="w-6 h-6 text-blue-600 dark:text-blue-400 mr-3" />
-          {{ t('about.api.title') }}
+          {{ t('about.api.endpoints.title') }}
         </h2>
         
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-3 gap-6 font-mono text-sm">
+          <!-- Text Processing Endpoints -->
           <div>
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-              {{ t('about.api.endpoints.title') }}
-            </h3>
-            <div class="space-y-4 font-mono text-sm">
-              <!-- Text Processing Endpoints -->
-              <div>
-                <h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">テキスト処理</h4>
-                <div class="grid grid-cols-1 gap-2">
-                  <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                    <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
-                    <span class="text-gray-600 dark:text-gray-400 ml-2">/api/text/summarize</span>
-                  </div>
-                  <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                    <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
-                    <span class="text-gray-600 dark:text-gray-400 ml-2">/api/text/keywords</span>
-                  </div>
-                  <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                    <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
-                    <span class="text-gray-600 dark:text-gray-400 ml-2">/api/text/analyze</span>
-                  </div>
-                </div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">テキスト処理</h3>
+            <div class="space-y-2">
+              <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
+                <span class="text-gray-600 dark:text-gray-400 ml-2">/api/text/summarize</span>
               </div>
-              <!-- File Processing Endpoints -->
-              <div>
-                <h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">ファイル処理</h4>
-                <div class="grid grid-cols-1 gap-2">
-                  <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                    <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
-                    <span class="text-gray-600 dark:text-gray-400 ml-2">/api/files/upload</span>
-                  </div>
-                  <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                    <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
-                    <span class="text-gray-600 dark:text-gray-400 ml-2">/api/files/analyze</span>
-                  </div>
-                </div>
+              <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
+                <span class="text-gray-600 dark:text-gray-400 ml-2">/api/text/keywords</span>
               </div>
-              <!-- System Endpoints -->
-              <div>
-                <h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">システム</h4>
-                <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-                  <span class="text-blue-600 dark:text-blue-400 font-semibold">GET</span>
-                  <span class="text-gray-600 dark:text-gray-400 ml-2">/health</span>
-                </div>
+              <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
+                <span class="text-gray-600 dark:text-gray-400 ml-2">/api/text/analyze</span>
               </div>
             </div>
           </div>
           
+          <!-- File Processing Endpoints -->
           <div>
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-              {{ t('about.api.performance.title') }}
-            </h3>
-            <div class="space-y-4">
-              <div class="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('about.api.performance.responseTime') }}</span>
-                <span class="font-semibold text-gray-900 dark:text-gray-100">~2-5 seconds</span>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">ファイル処理</h3>
+            <div class="space-y-2">
+              <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
+                <span class="text-gray-600 dark:text-gray-400 ml-2">/api/files/upload</span>
               </div>
-              <div class="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('about.api.performance.maxFileSize') }}</span>
-                <span class="font-semibold text-gray-900 dark:text-gray-100">5 MB</span>
+              <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
+                <span class="text-gray-600 dark:text-gray-400 ml-2">/api/files/analyze</span>
               </div>
-              <div class="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('about.api.performance.supportedFormats') }}</span>
-                <span class="font-semibold text-gray-900 dark:text-gray-100">TXT, PDF, DOCX</span>
+            </div>
+          </div>
+          
+          <!-- System Endpoints -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">システム</h3>
+            <div class="space-y-2">
+              <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                <span class="text-blue-600 dark:text-blue-400 font-semibold">GET</span>
+                <span class="text-gray-600 dark:text-gray-400 ml-2">/health</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Performance & Specifications -->
+      <div class="card p-8 mb-12">
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center">
+          <Zap class="w-6 h-6 text-yellow-600 dark:text-yellow-400 mr-3" />
+          {{ t('about.api.performance.title') }}
+        </h2>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+            <div>
+              <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                {{ t('about.api.performance.responseTime') }}
+              </h3>
+              <p class="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-1">~2-5秒</p>
+            </div>
+            <div class="text-blue-500 dark:text-blue-400">
+              <Clock class="w-8 h-8" />
+            </div>
+          </div>
+          
+          <div class="flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+            <div>
+              <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                {{ t('about.api.performance.maxFileSize') }}
+              </h3>
+              <p class="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-1">5 MB</p>
+            </div>
+            <div class="text-green-500 dark:text-green-400">
+              <HardDrive class="w-8 h-8" />
+            </div>
+          </div>
+          
+          <div class="flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+            <div>
+              <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                {{ t('about.api.performance.supportedFormats') }}
+              </h3>
+              <p class="text-lg font-bold text-gray-900 dark:text-gray-100 mt-1">TXT, PDF, DOCX</p>
+            </div>
+            <div class="text-purple-500 dark:text-purple-400">
+              <FileType class="w-8 h-8" />
             </div>
           </div>
         </div>
@@ -350,7 +373,7 @@
 <script setup lang="ts">
 import { 
   Sparkles, Code, Star, Zap, Upload, Moon, Download, 
-  Clock, Shield, Globe
+  Clock, Shield, Globe, HardDrive, FileType
 } from 'lucide-vue-next'
 import { useI18n } from 'vue-i18n'
 
