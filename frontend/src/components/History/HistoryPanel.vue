@@ -3,12 +3,12 @@
     <div class="flex items-center justify-between mb-6">
       <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 flex items-center space-x-2">
         <Clock class="w-5 h-5 text-blue-600 dark:text-blue-400" />
-        <span>Analysis History</span>
+        <span>{{ t('components.history.title') }}</span>
       </h2>
       
       <div class="flex items-center space-x-2">
         <span class="text-sm text-gray-500 dark:text-gray-400">
-          {{ history.length }} {{ history.length === 1 ? 'item' : 'items' }}
+          {{ history.length }} {{ history.length === 1 ? t('components.history.item') : t('components.history.items') }}
         </span>
         
         <button
@@ -16,7 +16,7 @@
           @click="clearAllHistory"
           class="text-sm text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300 transition-colors"
         >
-          Clear All
+          {{ t('components.history.clearAll') }}
         </button>
       </div>
     </div>
@@ -52,7 +52,7 @@
             <button
               @click.stop="loadHistoryItem(item)"
               class="p-1.5 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-              title="Load this analysis"
+:title="t('components.history.actions.load')"
             >
               <RotateCcw class="w-4 h-4" />
             </button>
@@ -60,7 +60,7 @@
             <button
               @click.stop="copyHistoryItem(item)"
               class="p-1.5 text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors"
-              :title="copyStatus[item.id] === 'copied' ? 'Copied!' : 'Copy results'"
+:title="copyStatus[item.id] === 'copied' ? t('components.results.toast.copied') : t('components.results.actions.copyText')"
             >
               <Check v-if="copyStatus[item.id] === 'copied'" class="w-4 h-4 text-green-600" />
               <Copy v-else class="w-4 h-4" />
@@ -69,7 +69,7 @@
             <button
               @click.stop="deleteHistoryItem(item.id)"
               class="p-1.5 text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors"
-              title="Delete this item"
+:title="t('components.history.actions.delete')"
             >
               <Trash2 class="w-4 h-4" />
             </button>
@@ -98,7 +98,7 @@
               v-if="item.keywords.length > 5"
               class="text-xs px-2 py-0.5 bg-gray-200 dark:bg-gray-600 text-gray-600 dark:text-gray-400 rounded"
             >
-              +{{ item.keywords.length - 5 }} more
+              +{{ item.keywords.length - 5 }} {{ t('components.history.more') }}
             </span>
           </div>
         </div>
@@ -106,9 +106,9 @@
         <!-- Stats -->
         <div class="flex justify-between items-center mt-3 pt-3 border-t border-gray-200 dark:border-gray-600">
           <div class="flex space-x-4 text-xs text-gray-500 dark:text-gray-400">
-            <span>{{ item.text.length.toLocaleString() }} chars</span>
-            <span>{{ getWordCount(item.text).toLocaleString() }} words</span>
-            <span>{{ item.keywords.length }} keywords</span>
+            <span>{{ languageStore.formatNumber(item.text.length) }} {{ t('components.history.chars') }}</span>
+            <span>{{ languageStore.formatNumber(getWordCount(item.text)) }} {{ t('components.history.words') }}</span>
+            <span>{{ item.keywords.length }} {{ t('components.history.keywords') }}</span>
           </div>
           
           <div class="text-xs text-gray-500 dark:text-gray-400">
@@ -124,10 +124,10 @@
         <Clock class="w-8 h-8 text-gray-400" />
       </div>
       <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
-        No analysis history yet
+        {{ t('components.history.empty') }}
       </h3>
       <p class="text-gray-600 dark:text-gray-400 text-sm">
-        Your analyzed texts will appear here for easy access and comparison.
+        {{ t('components.history.emptyHint') }}
       </p>
     </div>
     
@@ -140,11 +140,11 @@
         :class="{ 'opacity-50 cursor-not-allowed': currentPage <= 1 }"
       >
         <ChevronLeft class="w-4 h-4 mr-1" />
-        Previous
+        {{ t('components.history.pagination.previous') }}
       </button>
       
       <span class="text-sm text-gray-600 dark:text-gray-400">
-        Page {{ currentPage }} of {{ totalPages }}
+        {{ t('components.history.pagination.page', { current: currentPage, total: totalPages }) }}
       </span>
       
       <button
@@ -153,7 +153,7 @@
         class="btn-secondary text-sm"
         :class="{ 'opacity-50 cursor-not-allowed': currentPage >= totalPages }"
       >
-        Next
+        {{ t('components.history.pagination.next') }}
         <ChevronRight class="w-4 h-4 ml-1" />
       </button>
     </div>
@@ -166,8 +166,12 @@ import {
   Clock, RotateCcw, Copy, Check, Trash2, ChevronLeft, ChevronRight
 } from 'lucide-vue-next'
 import { useAppStore, type AnalysisResult } from '@/stores/appStore'
+import { useI18n } from 'vue-i18n'
+import { useLanguageStore } from '@/stores/languageStore'
 
 const appStore = useAppStore()
+const { t } = useI18n()
+const languageStore = useLanguageStore()
 
 const selectedItem = ref<AnalysisResult | null>(null)
 const copyStatus = ref<Record<string, 'idle' | 'copied'>>({})
@@ -198,28 +202,30 @@ const getWordCount = (text: string) => {
 }
 
 const formatDate = (date: Date) => {
-  return new Intl.DateTimeFormat('en-US', {
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
-  }).format(date)
+  return languageStore.formatDate(date)
 }
 
 const formatRelativeTime = (date: Date) => {
   const now = new Date()
   const diffMs = now.getTime() - date.getTime()
+  const diffMinutes = Math.floor(diffMs / (1000 * 60))
   const diffHours = Math.floor(diffMs / (1000 * 60 * 60))
   const diffDays = Math.floor(diffHours / 24)
+  const diffWeeks = Math.floor(diffDays / 7)
+  const diffMonths = Math.floor(diffDays / 30)
   
-  if (diffDays > 7) {
-    return formatDate(date)
+  if (diffMonths > 0) {
+    return t('components.history.timeAgo.monthsAgo', { n: diffMonths })
+  } else if (diffWeeks > 0) {
+    return t('components.history.timeAgo.weeksAgo', { n: diffWeeks })
   } else if (diffDays > 0) {
-    return `${diffDays} day${diffDays > 1 ? 's' : ''} ago`
+    return t('components.history.timeAgo.daysAgo', { n: diffDays })
   } else if (diffHours > 0) {
-    return `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`
+    return t('components.history.timeAgo.hoursAgo', { n: diffHours })
+  } else if (diffMinutes > 5) {
+    return t('components.history.timeAgo.minutesAgo', { n: diffMinutes })
   } else {
-    return 'Just now'
+    return t('components.history.timeAgo.justNow')
   }
 }
 
@@ -237,7 +243,7 @@ const loadHistoryItem = (item: AnalysisResult) => {
 }
 
 const copyHistoryItem = async (item: AnalysisResult) => {
-  const textToCopy = `SUMMARY:\n${item.summary}\n\nKEYWORDS:\n${item.keywords.join(', ')}`
+  const textToCopy = `${t('components.results.summary').toUpperCase()}:\n${item.summary}\n\n${t('components.results.keywords').toUpperCase()}:\n${item.keywords.join(', ')}`
   
   try {
     await navigator.clipboard.writeText(textToCopy)
@@ -258,7 +264,7 @@ const deleteHistoryItem = (id: string) => {
 }
 
 const clearAllHistory = () => {
-  if (confirm('Are you sure you want to clear all analysis history?')) {
+  if (confirm(t('components.history.confirmClear'))) {
     appStore.clearHistory()
     selectedItem.value = null
     currentPage.value = 1

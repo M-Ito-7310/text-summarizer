@@ -2,19 +2,19 @@
   <div class="card p-6">
     <div class="flex items-center justify-between mb-6">
       <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100">
-        Input Text
+        {{ t('home.input.title') }}
       </h2>
       
       <!-- Summary Length Selector -->
       <div class="flex items-center space-x-3">
-        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Length:</span>
+        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{{ t('home.input.lengthLabel') }}</span>
         <select 
           v-model="appStore.summaryLength"
           class="text-sm border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         >
-          <option value="short">Short</option>
-          <option value="medium">Medium</option>
-          <option value="long">Long</option>
+          <option value="short">{{ t('home.input.lengthOptions.short') }}</option>
+          <option value="medium">{{ t('home.input.lengthOptions.medium') }}</option>
+          <option value="long">{{ t('home.input.lengthOptions.long') }}</option>
         </select>
       </div>
     </div>
@@ -25,7 +25,7 @@
         <textarea
           v-model="appStore.currentText"
           @input="handleTextInput"
-          placeholder="Enter your text here for summarization and keyword extraction..."
+:placeholder="t('home.input.placeholder')"
           class="input-field min-h-[200px]"
           :disabled="appStore.processingStatus.isLoading"
         />
@@ -33,11 +33,11 @@
         <!-- Character/Word Count -->
         <div class="flex justify-between items-center mt-2 text-sm text-gray-500 dark:text-gray-400">
           <div class="flex space-x-4">
-            <span>{{ appStore.characterCount.toLocaleString() }} characters</span>
-            <span>{{ appStore.wordCount.toLocaleString() }} words</span>
+            <span>{{ appStore.characterCount.toLocaleString() }} {{ t('common.common.characters') }}</span>
+            <span>{{ appStore.wordCount.toLocaleString() }} {{ t('common.common.words') }}</span>
           </div>
           <div v-if="appStore.characterCount > 10000" class="text-amber-600 dark:text-amber-400">
-            Long text may take more time to process
+            {{ t('home.input.warnings.longText') }}
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
         class="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline"
         :disabled="appStore.processingStatus.isLoading"
       >
-        Load sample text
+        {{ t('common.buttons.loadSample') }}
       </button>
     </div>
     
@@ -61,7 +61,7 @@
         :class="{ 'opacity-50 cursor-not-allowed': !canAnalyze || appStore.processingStatus.isLoading }"
       >
         <Sparkles class="w-4 h-4" />
-        <span>{{ appStore.processingStatus.isLoading ? 'Analyzing...' : 'Analyze Text' }}</span>
+        <span>{{ appStore.processingStatus.isLoading ? t('common.status.analyzing') : t('common.buttons.analyze') }}</span>
       </button>
       
       <button
@@ -93,8 +93,10 @@
 import { ref, computed } from 'vue'
 import { Type, Sparkles, Trash2 } from 'lucide-vue-next'
 import { useAppStore } from '@/stores/appStore'
+import { useI18n } from 'vue-i18n'
 
 const appStore = useAppStore()
+const { t } = useI18n()
 
 
 const canAnalyze = computed(() => {

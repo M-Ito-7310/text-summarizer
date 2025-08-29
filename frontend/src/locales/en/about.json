@@ -1,0 +1,96 @@
+{
+  "title": "About TextSummarizer",
+  "hero": {
+    "title": "Next-Gen AI-Powered Text Analysis",
+    "subtitle": "A modern, AI-powered tool for intelligent text analysis, summarization, and keyword extraction built with cutting-edge technology."
+  },
+  "overview": {
+    "title": "What We Do",
+    "description": "TextSummarizer leverages state-of-the-art artificial intelligence to help you quickly understand and extract value from large volumes of text. Whether you're a researcher, student, content creator, or business professional, our tool helps you save time and gain insights faster.",
+    "summarization": {
+      "title": "Intelligent Summarization",
+      "description": "Our AI models understand context and meaning to create accurate, coherent summaries that preserve the most important information while dramatically reducing reading time."
+    },
+    "keywords": {
+      "title": "Smart Keyword Extraction",
+      "description": "Automatically identify and extract the most relevant terms, concepts, and topics from your text to help with research, SEO, and content organization."
+    }
+  },
+  "technology": {
+    "title": "Technology Stack",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "aiIntegration": "AI Integration",
+    "vue": {
+      "description": "Progressive Framework"
+    },
+    "typescript": {
+      "description": "Type Safety"
+    },
+    "tailwind": {
+      "description": "Styling & Design"
+    },
+    "nodejs": {
+      "description": "Runtime Environment"
+    },
+    "express": {
+      "description": "Web Framework"
+    },
+    "sqlite": {
+      "description": "Database"
+    },
+    "gemini": {
+      "description": "Large Language Model"
+    },
+    "huggingface": {
+      "description": "ML Models"
+    },
+    "aiCoordination": {
+      "description": "Smart Routing"
+    }
+  },
+  "features": {
+    "title": "Key Features",
+    "summaryLengths": {
+      "title": "Multiple Summary Lengths",
+      "description": "Choose from short, medium, or long summaries based on your needs and time constraints."
+    },
+    "fileSupport": {
+      "title": "File Upload Support",
+      "description": "Directly upload and analyze TXT, PDF, and DOCX files without manual text extraction."
+    },
+    "darkMode": {
+      "title": "Dark Mode Support",
+      "description": "Comfortable viewing experience with automatic dark mode detection and manual toggle."
+    },
+    "exportShare": {
+      "title": "Export & Share",
+      "description": "Export your analysis results as PDF or share them directly with colleagues and friends."
+    },
+    "history": {
+      "title": "Analysis History",
+      "description": "Keep track of all your analyses with persistent local storage and easy navigation."
+    },
+    "privacy": {
+      "title": "Privacy First",
+      "description": "Your data is processed securely and never stored permanently on our servers."
+    }
+  },
+  "api": {
+    "title": "API & Performance",
+    "endpoints": {
+      "title": "API Endpoints"
+    },
+    "performance": {
+      "title": "Performance Metrics",
+      "responseTime": "Average Response Time",
+      "maxFileSize": "Max File Size",
+      "supportedFormats": "Supported Formats"
+    }
+  },
+  "cta": {
+    "title": "Ready to Start Analyzing?",
+    "description": "Experience the power of AI-driven text analysis. Upload your documents or paste your text to get started with intelligent summarization and keyword extraction.",
+    "button": "Try TextSummarizer Now"
+  }
+}

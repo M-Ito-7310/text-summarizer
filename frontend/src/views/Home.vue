@@ -4,25 +4,25 @@
       <!-- Header Section -->
       <div class="text-center mb-12 animate-fade-in">
         <h1 class="text-5xl md:text-6xl font-bold gradient-text mb-6 animate-slide-up">
-          AI-Powered Text Analysis
+          {{ t('home.hero.title') }}
         </h1>
         <p class="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.2s;">
-          Extract key insights from your text with advanced summarization and keyword extraction powered by state-of-the-art AI models. Upload files or paste text to get started.
+          {{ t('home.hero.subtitle') }}
         </p>
         
         <!-- Features badges -->
         <div class="flex justify-center items-center space-x-3 mt-6 animate-slide-up" style="animation-delay: 0.4s;">
           <span class="tag-success">
             <FileText class="w-4 h-4 mr-1" />
-            File Support
+            {{ t('home.hero.badges.fileSupport') }}
           </span>
           <span class="tag">
             <Zap class="w-4 h-4 mr-1" />
-            AI-Powered
+            {{ t('home.hero.badges.aiPowered') }}
           </span>
           <span class="tag-warning">
             <Shield class="w-4 h-4 mr-1" />
-            Secure & Private
+            {{ t('home.hero.badges.secure') }}
           </span>
         </div>
       </div>
@@ -53,7 +53,7 @@
                     : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
                 ]"
               >
-                File Upload
+                {{ t('home.tabs.fileUpload') }}
               </button>
               <button
                 @click="inputMode = 'text'"
@@ -64,7 +64,7 @@
                     : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
                 ]"
               >
-                Text Input
+                {{ t('home.tabs.textInput') }}
               </button>
             </div>
           </div>
@@ -87,7 +87,7 @@
           <!-- Features Overview -->
           <div v-if="!appStore.currentResult" class="card p-8">
             <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 text-center">
-              Powerful Features
+              {{ t('home.features.title') }}
             </h2>
             
             <div class="grid md:grid-cols-2 gap-6">
@@ -97,10 +97,10 @@
                 </div>
                 <div>
                   <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
-                    Smart Summarization
+                    {{ t('home.features.summarization.title') }}
                   </h3>
                   <p class="text-gray-600 dark:text-gray-400 text-sm">
-                    Generate concise, accurate summaries that capture the essence of your text using advanced AI models.
+                    {{ t('home.features.summarization.description') }}
                   </p>
                 </div>
               </div>
@@ -111,10 +111,10 @@
                 </div>
                 <div>
                   <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
-                    Keyword Extraction
+                    {{ t('home.features.keywords.title') }}
                   </h3>
                   <p class="text-gray-600 dark:text-gray-400 text-sm">
-                    Automatically identify the most important terms and concepts from your content.
+                    {{ t('home.features.keywords.description') }}
                   </p>
                 </div>
               </div>
@@ -125,10 +125,10 @@
                 </div>
                 <div>
                   <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
-                    File Support
+                    {{ t('home.features.fileSupport.title') }}
                   </h3>
                   <p class="text-gray-600 dark:text-gray-400 text-sm">
-                    Upload and analyze PDF, DOCX, and TXT files with drag & drop support.
+                    {{ t('home.features.fileSupport.description') }}
                   </p>
                 </div>
               </div>
@@ -139,10 +139,10 @@
                 </div>
                 <div>
                   <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
-                    History & Export
+                    {{ t('home.features.history.title') }}
                   </h3>
                   <p class="text-gray-600 dark:text-gray-400 text-sm">
-                    Keep track of your analyses and export results as PDF or share them easily.
+                    {{ t('home.features.history.description') }}
                   </p>
                 </div>
               </div>
@@ -151,17 +151,17 @@
             <!-- CTA -->
             <div class="mt-8 text-center">
               <p class="text-gray-600 dark:text-gray-400 mb-4">
-                Ready to get started? Enter your text above or upload a file to begin.
+                {{ t('home.features.cta.text') }}
               </p>
               <div class="flex justify-center space-x-4">
                 <button
                   @click="scrollToInput"
                   class="btn-primary"
                 >
-                  Try It Now
+                  {{ t('common.buttons.tryItNow') }}
                 </button>
                 <router-link to="/about" class="btn-secondary">
-                  Learn More
+                  {{ t('common.buttons.learnMore') }}
                 </router-link>
               </div>
             </div>
@@ -176,35 +176,35 @@
           <div class="card p-6 mt-8">
             <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center">
               <Lightbulb class="w-5 h-5 text-yellow-600 dark:text-yellow-400 mr-2" />
-              Pro Tips
+              {{ t('home.tips.title') }}
             </h3>
             
             <div class="space-y-3 text-sm">
               <div class="flex items-start space-x-2">
                 <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
                 <p class="text-gray-600 dark:text-gray-400">
-                  For best results, provide text with at least 100 words for meaningful summarization.
+                  {{ t('home.tips.tip1') }}
                 </p>
               </div>
               
               <div class="flex items-start space-x-2">
                 <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
                 <p class="text-gray-600 dark:text-gray-400">
-                  Use the "Medium" length setting for balanced summaries that capture key details.
+                  {{ t('home.tips.tip2') }}
                 </p>
               </div>
               
               <div class="flex items-start space-x-2">
                 <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0" />
                 <p class="text-gray-600 dark:text-gray-400">
-                  Upload TXT files directly instead of copying and pasting large documents.
+                  {{ t('home.tips.tip3') }}
                 </p>
               </div>
               
               <div class="flex items-start space-x-2">
                 <div class="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0" />
                 <p class="text-gray-600 dark:text-gray-400">
-                  Your analysis history is saved locally and persists between sessions.
+                  {{ t('home.tips.tip4') }}
                 </p>
               </div>
             </div>
@@ -214,26 +214,26 @@
           <div class="card p-6 mt-6">
             <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center">
               <BarChart3 class="w-5 h-5 text-blue-600 dark:text-blue-400 mr-2" />
-              Your Activity
+              {{ t('home.activity.title') }}
             </h3>
             
             <div class="space-y-4">
               <div class="flex justify-between items-center">
-                <span class="text-sm text-gray-600 dark:text-gray-400">Total Analyses</span>
+                <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('home.activity.totalAnalyses') }}</span>
                 <span class="text-lg font-semibold text-gray-900 dark:text-gray-100">
                   {{ appStore.analysisHistory.length }}
                 </span>
               </div>
               
               <div class="flex justify-between items-center">
-                <span class="text-sm text-gray-600 dark:text-gray-400">Words Processed</span>
+                <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('home.activity.wordsProcessed') }}</span>
                 <span class="text-lg font-semibold text-gray-900 dark:text-gray-100">
                   {{ totalWordsProcessed.toLocaleString() }}
                 </span>
               </div>
               
               <div class="flex justify-between items-center">
-                <span class="text-sm text-gray-600 dark:text-gray-400">Keywords Found</span>
+                <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('home.activity.keywordsFound') }}</span>
                 <span class="text-lg font-semibold text-gray-900 dark:text-gray-100">
                   {{ totalKeywords }}
                 </span>
@@ -247,7 +247,7 @@
       <div class="mt-16 text-center">
         <div class="inline-flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-full">
           <Shield class="w-4 h-4" />
-          <span>Your data is processed securely and not stored on our servers</span>
+          <span>{{ t('home.privacy.message') }}</span>
         </div>
       </div>
     </div>
@@ -258,7 +258,7 @@
       size="lg"
       variant="gradient"
       :text="appStore.processingStatus.currentStep"
-      subtext="Please wait while we analyze your text..."
+      :subtext="t('common.status.analyzing')"
       fullscreen
     />
   </div>
@@ -270,6 +270,7 @@ import {
   Zap, Tag, FileText, Clock, Lightbulb, BarChart3, Shield
 } from 'lucide-vue-next'
 import { useAppStore, type AnalysisResult } from '@/stores/appStore'
+import { useI18n } from 'vue-i18n'
 import TextInput from '@/components/Input/TextInput.vue'
 import FileUpload from '@/components/Input/FileUpload.vue'
 import ResultDisplay from '@/components/Results/ResultDisplay.vue'
@@ -278,6 +279,7 @@ import ErrorAlert from '@/components/UI/ErrorAlert.vue'
 import LoadingSpinner from '@/components/UI/LoadingSpinner.vue'
 
 const appStore = useAppStore()
+const { t } = useI18n()
 const inputMode = ref<'text' | 'file'>('file')
 
 const totalWordsProcessed = computed(() => {

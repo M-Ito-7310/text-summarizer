@@ -1,0 +1,96 @@
+{
+  "title": "TextSummarizerについて",
+  "hero": {
+    "title": "次世代AI搭載テキスト分析",
+    "subtitle": "最先端の技術で構築された、インテリジェントなテキスト分析、要約、キーワード抽出のためのモダンなAI搭載ツール。"
+  },
+  "overview": {
+    "title": "私たちの取り組み",
+    "description": "TextSummarizerは最先端の人工知能を活用し、大量のテキストから価値を素早く理解し抽出するお手伝いをします。研究者、学生、コンテンツクリエイター、ビジネスプロフェッショナルの皆様に、時間を節約し、より早く洞察を得ていただけます。",
+    "summarization": {
+      "title": "インテリジェント要約",
+      "description": "私たちのAIモデルは文脈と意味を理解し、最も重要な情報を保持しながら読書時間を大幅に短縮する、正確で一貫性のある要約を作成します。"
+    },
+    "keywords": {
+      "title": "スマートキーワード抽出",
+      "description": "テキストから最も関連性の高い用語、概念、トピックを自動的に識別・抽出し、研究、SEO、コンテンツ整理をサポートします。"
+    }
+  },
+  "technology": {
+    "title": "テクノロジースタック",
+    "frontend": "フロントエンド",
+    "backend": "バックエンド",
+    "aiIntegration": "AI統合",
+    "vue": {
+      "description": "プログレッシブフレームワーク"
+    },
+    "typescript": {
+      "description": "型安全性"
+    },
+    "tailwind": {
+      "description": "スタイリング & デザイン"
+    },
+    "nodejs": {
+      "description": "ランタイム環境"
+    },
+    "express": {
+      "description": "Webフレームワーク"
+    },
+    "sqlite": {
+      "description": "データベース"
+    },
+    "gemini": {
+      "description": "大規模言語モデル"
+    },
+    "huggingface": {
+      "description": "MLモデル"
+    },
+    "aiCoordination": {
+      "description": "スマートルーティング"
+    }
+  },
+  "features": {
+    "title": "主な機能",
+    "summaryLengths": {
+      "title": "複数の要約長",
+      "description": "ニーズと時間の制約に基づいて、短い、標準、長い要約から選択できます。"
+    },
+    "fileSupport": {
+      "title": "ファイルアップロード対応",
+      "description": "手動でのテキスト抽出なしに、TXT、PDF、DOCXファイルを直接アップロードして分析できます。"
+    },
+    "darkMode": {
+      "title": "ダークモード対応",
+      "description": "自動ダークモード検出と手動切り替えで快適な閲覧体験を提供します。"
+    },
+    "exportShare": {
+      "title": "エクスポート & 共有",
+      "description": "分析結果をPDFとしてエクスポートするか、同僚や友人と直接共有できます。"
+    },
+    "history": {
+      "title": "分析履歴",
+      "description": "永続的なローカルストレージと簡単なナビゲーションで、すべての分析を追跡できます。"
+    },
+    "privacy": {
+      "title": "プライバシー第一",
+      "description": "データは安全に処理され、サーバーに永続的に保存されることはありません。"
+    }
+  },
+  "api": {
+    "title": "API & パフォーマンス",
+    "endpoints": {
+      "title": "APIエンドポイント"
+    },
+    "performance": {
+      "title": "パフォーマンス指標",
+      "responseTime": "平均応答時間",
+      "maxFileSize": "最大ファイルサイズ",
+      "supportedFormats": "対応形式"
+    }
+  },
+  "cta": {
+    "title": "分析を始める準備はできましたか？",
+    "description": "AI駆動のテキスト分析の力を体験してください。ドキュメントをアップロードするか、テキストを貼り付けて、インテリジェント要約とキーワード抽出を始めましょう。",
+    "button": "今すぐTextSummarizerを試す"
+  }
+}

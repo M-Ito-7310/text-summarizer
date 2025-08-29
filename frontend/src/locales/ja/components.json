@@ -1,0 +1,72 @@
+{
+  "results": {
+    "title": "分析結果",
+    "summary": "要約",
+    "keywords": "キーワード",
+    "allKeywords": "すべてのキーワード",
+    "originalText": "元のテキスト",
+    "compression": "圧縮率",
+    "actions": {
+      "copyText": "テキストをコピー",
+      "shareResult": "結果を共有",
+      "exportPdf": "PDFでエクスポート"
+    },
+    "toast": {
+      "copied": "クリップボードにコピーしました！"
+    },
+    "emptyState": {
+      "title": "テキスト分析の準備完了",
+      "description": "テキストを入力するか、ファイルをアップロードしてAI搭載の要約とキーワード抽出を始めましょう。"
+    }
+  },
+  "history": {
+    "title": "履歴",
+    "empty": "履歴はまだありません",
+    "emptyHint": "分析結果がここに表示されます",
+    "searchPlaceholder": "履歴を検索...",
+    "clearAll": "すべてクリア",
+    "confirmClear": "履歴をクリアしてもよろしいですか？",
+    "item": "項目",
+    "items": "項目",
+    "more": "その他",
+    "chars": "文字",
+    "words": "単語",
+    "keywords": "キーワード",
+    "actions": {
+      "load": "この分析を読み込む",
+      "delete": "この項目を削除"
+    },
+    "pagination": {
+      "previous": "前へ",
+      "next": "次へ",
+      "page": "ページ {current} / {total}"
+    },
+    "timeAgo": {
+      "justNow": "たった今",
+      "minutesAgo": "{n}分前",
+      "hoursAgo": "{n}時間前",
+      "daysAgo": "{n}日前",
+      "weeksAgo": "{n}週間前",
+      "monthsAgo": "{n}ヶ月前"
+    }
+  },
+  "error": {
+    "title": "エラー",
+    "genericMessage": "問題が発生しました。もう一度お試しください。",
+    "fileType": "有効なファイルタイプを選択してください（TXT）",
+    "fileSize": "ファイルサイズは10MB未満である必要があります",
+    "networkError": "ネットワークエラー。接続を確認してください。",
+    "processingError": "処理エラー。もう一度お試しください。"
+  },
+  "success": {
+    "analyzed": "テキストが正常に分析されました！",
+    "exported": "PDFが正常にエクスポートされました！",
+    "shared": "結果が正常に共有されました！",
+    "uploaded": "ファイルが正常にアップロードされました"
+  },
+  "fileTypes": {
+    "documents": "ドキュメント",
+    "wordDocs": "Wordドキュメント",
+    "plainText": "プレーンテキスト"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "title": "AI-Powered Text Analysis",
+    "subtitle": "Extract key insights from your text with advanced summarization and keyword extraction powered by state-of-the-art AI models. Upload files or paste text to get started.",
+    "badges": {
+      "fileSupport": "File Support",
+      "aiPowered": "AI-Powered",
+      "secure": "Secure & Private"
+    }
+  },
+  "tabs": {
+    "fileUpload": "File Upload",
+    "textInput": "Text Input"
+  },
+  "input": {
+    "title": "Input Text",
+    "placeholder": "Enter your text here for summarization and keyword extraction...",
+    "lengthLabel": "Length:",
+    "lengthOptions": {
+      "short": "Short",
+      "medium": "Medium",
+      "long": "Long"
+    },
+    "fileUpload": {
+      "dropzone": "Drop files here to upload",
+      "or": "or",
+      "supports": "Supports: TXT files (max 10MB)"
+    },
+    "warnings": {
+      "longText": "Long text may take more time to process"
+    }
+  },
+  "features": {
+    "title": "Powerful Features",
+    "summarization": {
+      "title": "Smart Summarization",
+      "description": "Generate concise, accurate summaries that capture the essence of your text using advanced AI models."
+    },
+    "keywords": {
+      "title": "Keyword Extraction",
+      "description": "Automatically identify the most important terms and concepts from your content."
+    },
+    "fileSupport": {
+      "title": "File Support",
+      "description": "Upload and analyze PDF, DOCX, and TXT files with drag & drop support."
+    },
+    "history": {
+      "title": "History & Export",
+      "description": "Keep track of your analyses and export results as PDF or share them easily."
+    },
+    "cta": {
+      "text": "Ready to get started? Enter your text above or upload a file to begin."
+    }
+  },
+  "tips": {
+    "title": "Pro Tips",
+    "tip1": "For best results, provide text with at least 100 words for meaningful summarization.",
+    "tip2": "Use the \"Medium\" length setting for balanced summaries that capture key details.",
+    "tip3": "Upload TXT files directly instead of copying and pasting large documents.",
+    "tip4": "Your analysis history is saved locally and persists between sessions."
+  },
+  "activity": {
+    "title": "Your Activity",
+    "totalAnalyses": "Total Analyses",
+    "wordsProcessed": "Words Processed",
+    "keywordsFound": "Keywords Found"
+  },
+  "privacy": {
+    "message": "Your data is processed securely and not stored on our servers"
+  }
+}

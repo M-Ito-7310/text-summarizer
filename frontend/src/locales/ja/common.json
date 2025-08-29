@@ -1,0 +1,45 @@
+{
+  "app": {
+    "name": "TextSummarizer",
+    "tagline": "AI搭載テキスト分析ツール"
+  },
+  "nav": {
+    "analyze": "分析",
+    "about": "このアプリについて"
+  },
+  "footer": {
+    "copyright": "© 2024 TextSummarizer. Vue.js & AIで構築。",
+    "privacy": "プライバシー",
+    "terms": "利用規約",
+    "support": "サポート"
+  },
+  "buttons": {
+    "analyze": "テキストを分析",
+    "clear": "クリア",
+    "export": "エクスポート",
+    "share": "共有",
+    "copyToClipboard": "クリップボードにコピー",
+    "downloadPdf": "PDFをダウンロード",
+    "tryItNow": "今すぐ試す",
+    "learnMore": "詳しく見る",
+    "loadSample": "サンプルテキストを読み込む",
+    "chooseFiles": "ファイルを選択",
+    "useAsInput": "入力として使用"
+  },
+  "status": {
+    "online": "オンライン",
+    "offline": "オフライン",
+    "checking": "確認中",
+    "processing": "処理中",
+    "analyzing": "分析中...",
+    "loading": "読み込み中..."
+  },
+  "common": {
+    "language": "言語",
+    "darkMode": "ダークモード",
+    "lightMode": "ライトモード",
+    "characters": "文字",
+    "words": "単語",
+    "close": "閉じる"
+  }
+}

@@ -3,7 +3,7 @@
     <div class="flex items-center justify-between mb-6">
       <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 flex items-center space-x-2">
         <Upload class="w-5 h-5 text-blue-600 dark:text-blue-400" />
-        <span>File Upload</span>
+        <span>{{ t('home.tabs.fileUpload') }}</span>
       </h2>
       
       <button
@@ -11,7 +11,7 @@
         @click="clearFile"
         class="text-sm text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300 transition-colors"
       >
-        Clear File
+        {{ t('common.buttons.clear') }}
       </button>
     </div>
 
@@ -50,10 +50,10 @@
         
         <div>
           <p class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
-            {{ isDragActive ? 'Drop your file here' : 'Drop files here or click to browse' }}
+            {{ isDragActive ? t('home.input.fileUpload.dropzone') : t('home.input.fileUpload.dropzone') }}
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400">
-            Supports PDF, DOCX, and TXT files (max 5MB)
+            {{ t('home.input.fileUpload.supports') }}
           </p>
         </div>
       </div>
@@ -66,7 +66,7 @@
         
         <div>
           <p class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
-            Processing file...
+            {{ t('common.status.processing') }}
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400">
             {{ processingStatus }}
@@ -82,15 +82,15 @@
         
         <div>
           <p class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
-            File uploaded successfully
+            {{ t('components.success.uploaded') }}
           </p>
           <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
             {{ uploadedFile.filename }} ({{ formatFileSize(uploadedFile.fileSize) }})
           </p>
           
           <div class="flex justify-center space-x-4 text-xs text-gray-500 dark:text-gray-400">
-            <span>{{ uploadedFile.metadata.characterCount.toLocaleString() }} characters</span>
-            <span>{{ uploadedFile.metadata.wordCount.toLocaleString() }} words</span>
+            <span>{{ uploadedFile.metadata.characterCount.toLocaleString() }} {{ t('common.common.characters') }}</span>
+            <span>{{ uploadedFile.metadata.wordCount.toLocaleString() }} {{ t('common.common.words') }}</span>
           </div>
         </div>
 
@@ -102,7 +102,7 @@
             :disabled="!uploadedFile"
           >
             <Zap class="w-4 h-4 mr-2" />
-            Analyze Text
+            {{ t('common.buttons.analyze') }}
           </button>
           
           <button
@@ -110,7 +110,7 @@
             class="btn-secondary text-sm"
           >
             <Edit class="w-4 h-4 mr-2" />
-            Use as Input
+            {{ t('common.buttons.useAsInput') }}
           </button>
         </div>
       </div>
@@ -132,7 +132,7 @@
         </div>
         <div>
           <p class="text-sm font-medium text-gray-900 dark:text-gray-100">PDF</p>
-          <p class="text-xs text-gray-500 dark:text-gray-400">Documents</p>
+          <p class="text-xs text-gray-500 dark:text-gray-400">{{ t('components.fileTypes.documents') }}</p>
         </div>
       </div>
 
@@ -142,7 +142,7 @@
         </div>
         <div>
           <p class="text-sm font-medium text-gray-900 dark:text-gray-100">DOCX</p>
-          <p class="text-xs text-gray-500 dark:text-gray-400">Word Docs</p>
+          <p class="text-xs text-gray-500 dark:text-gray-400">{{ t('components.fileTypes.wordDocs') }}</p>
         </div>
       </div>
 
@@ -152,7 +152,7 @@
         </div>
         <div>
           <p class="text-sm font-medium text-gray-900 dark:text-gray-100">TXT</p>
-          <p class="text-xs text-gray-500 dark:text-gray-400">Plain Text</p>
+          <p class="text-xs text-gray-500 dark:text-gray-400">{{ t('components.fileTypes.plainText') }}</p>
         </div>
       </div>
     </div>
@@ -163,10 +163,12 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { Upload, FileText, Zap, Edit, AlertCircle } from 'lucide-vue-next'
 import { useAppStore } from '@/stores/appStore'
+import { useI18n } from 'vue-i18n'
 import axios from 'axios'
 
 
 const appStore = useAppStore()
+const { t } = useI18n()
 
 const dropZone = ref<HTMLElement>()
 const fileInput = ref<HTMLInputElement>()

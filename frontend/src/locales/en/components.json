@@ -1,0 +1,72 @@
+{
+  "results": {
+    "title": "Analysis Results",
+    "summary": "Summary",
+    "keywords": "Keywords",
+    "allKeywords": "All keywords",
+    "originalText": "Original Text",
+    "compression": "Compression",
+    "actions": {
+      "copyText": "Copy Text",
+      "shareResult": "Share Result",
+      "exportPdf": "Export as PDF"
+    },
+    "toast": {
+      "copied": "Copied to clipboard!"
+    },
+    "emptyState": {
+      "title": "Ready to analyze your text",
+      "description": "Enter some text or upload a file to get started with AI-powered summarization and keyword extraction."
+    }
+  },
+  "history": {
+    "title": "History",
+    "empty": "No history yet",
+    "emptyHint": "Your analysis results will appear here",
+    "searchPlaceholder": "Search history...",
+    "clearAll": "Clear All",
+    "confirmClear": "Are you sure you want to clear the history?",
+    "item": "item",
+    "items": "items",
+    "more": "more",
+    "chars": "chars",
+    "words": "words",
+    "keywords": "keywords",
+    "actions": {
+      "load": "Load this analysis",
+      "delete": "Delete this item"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {current} of {total}"
+    },
+    "timeAgo": {
+      "justNow": "Just now",
+      "minutesAgo": "{n} minutes ago",
+      "hoursAgo": "{n} hours ago",
+      "daysAgo": "{n} days ago",
+      "weeksAgo": "{n} weeks ago",
+      "monthsAgo": "{n} months ago"
+    }
+  },
+  "error": {
+    "title": "Error",
+    "genericMessage": "Something went wrong. Please try again.",
+    "fileType": "Please select a valid file type (TXT)",
+    "fileSize": "File size must be less than 10MB",
+    "networkError": "Network error. Please check your connection.",
+    "processingError": "Processing error. Please try again."
+  },
+  "success": {
+    "analyzed": "Text analyzed successfully!",
+    "exported": "PDF exported successfully!",
+    "shared": "Result shared successfully!",
+    "uploaded": "File uploaded successfully"
+  },
+  "fileTypes": {
+    "documents": "Documents",
+    "wordDocs": "Word Docs",
+    "plainText": "Plain Text"
+  }
+}

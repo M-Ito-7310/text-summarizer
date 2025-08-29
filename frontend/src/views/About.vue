@@ -4,10 +4,10 @@
       <!-- Hero Section -->
       <div class="text-center mb-16">
         <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-6">
-          About TextSummarizer
+          {{ t('about.title') }}
         </h1>
         <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-          A modern, AI-powered tool for intelligent text analysis, summarization, and keyword extraction built with cutting-edge technology.
+          {{ t('about.hero.subtitle') }}
         </p>
       </div>
       
@@ -15,30 +15,30 @@
       <div class="card p-8 mb-12">
         <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center">
           <Sparkles class="w-6 h-6 text-blue-600 dark:text-blue-400 mr-3" />
-          What We Do
+          {{ t('about.overview.title') }}
         </h2>
         
         <div class="prose dark:prose-invert max-w-none">
           <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
-            TextSummarizer leverages state-of-the-art artificial intelligence to help you quickly understand and extract value from large volumes of text. Whether you're a researcher, student, content creator, or business professional, our tool helps you save time and gain insights faster.
+            {{ t('about.overview.description') }}
           </p>
           
           <div class="grid md:grid-cols-2 gap-8 mt-8">
             <div>
               <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">
-                Intelligent Summarization
+                {{ t('about.overview.summarization.title') }}
               </h3>
               <p class="text-gray-600 dark:text-gray-400">
-                Our AI models understand context and meaning to create accurate, coherent summaries that preserve the most important information while dramatically reducing reading time.
+                {{ t('about.overview.summarization.description') }}
               </p>
             </div>
             
             <div>
               <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">
-                Smart Keyword Extraction
+                {{ t('about.overview.keywords.title') }}
               </h3>
               <p class="text-gray-600 dark:text-gray-400">
-                Automatically identify and extract the most relevant terms, concepts, and topics from your text to help with research, SEO, and content organization.
+                {{ t('about.overview.keywords.description') }}
               </p>
             </div>
           </div>
@@ -49,13 +49,13 @@
       <div class="card p-8 mb-12">
         <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center">
           <Code class="w-6 h-6 text-green-600 dark:text-green-400 mr-3" />
-          Technology Stack
+          {{ t('about.technology.title') }}
         </h2>
         
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Frontend -->
           <div class="space-y-4">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">Frontend</h3>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ t('about.technology.frontend') }}</h3>
             <div class="space-y-3">
               <div class="flex items-center space-x-3">
                 <div class="w-8 h-8 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center">
@@ -63,7 +63,7 @@
                 </div>
                 <div>
                   <p class="text-sm font-medium text-gray-900 dark:text-gray-100">Vue.js 3</p>
-                  <p class="text-xs text-gray-600 dark:text-gray-400">Progressive Framework</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">{{ t('about.technology.vue.description') }}</p>
                 </div>
               </div>
               
@@ -73,7 +73,7 @@
                 </div>
                 <div>
                   <p class="text-sm font-medium text-gray-900 dark:text-gray-100">TypeScript</p>
-                  <p class="text-xs text-gray-600 dark:text-gray-400">Type Safety</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">{{ t('about.technology.typescript.description') }}</p>
                 </div>
               </div>
               
@@ -83,7 +83,7 @@
                 </div>
                 <div>
                   <p class="text-sm font-medium text-gray-900 dark:text-gray-100">Tailwind CSS</p>
-                  <p class="text-xs text-gray-600 dark:text-gray-400">Styling & Design</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">{{ t('about.technology.tailwind.description') }}</p>
                 </div>
               </div>
             </div>
@@ -91,7 +91,7 @@
           
           <!-- Backend -->
           <div class="space-y-4">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">Backend</h3>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ t('about.technology.backend') }}</h3>
             <div class="space-y-3">
               <div class="flex items-center space-x-3">
                 <div class="w-8 h-8 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center">
@@ -99,7 +99,7 @@
                 </div>
                 <div>
                   <p class="text-sm font-medium text-gray-900 dark:text-gray-100">Node.js</p>
-                  <p class="text-xs text-gray-600 dark:text-gray-400">Runtime Environment</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">{{ t('about.technology.nodejs.description') }}</p>
                 </div>
               </div>
               
@@ -109,7 +109,7 @@
                 </div>
                 <div>
                   <p class="text-sm font-medium text-gray-900 dark:text-gray-100">Express.js</p>
-                  <p class="text-xs text-gray-600 dark:text-gray-400">Web Framework</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">{{ t('about.technology.express.description') }}</p>
                 </div>
               </div>
               
@@ -119,7 +119,7 @@
                 </div>
                 <div>
                   <p class="text-sm font-medium text-gray-900 dark:text-gray-100">SQLite</p>
-                  <p class="text-xs text-gray-600 dark:text-gray-400">Database</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">{{ t('about.technology.sqlite.description') }}</p>
                 </div>
               </div>
             </div>
@@ -127,7 +127,7 @@
           
           <!-- AI/ML -->
           <div class="space-y-4">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">AI Integration</h3>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ t('about.technology.aiIntegration') }}</h3>
             <div class="space-y-3">
               <div class="flex items-center space-x-3">
                 <div class="w-8 h-8 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center">
@@ -135,7 +135,7 @@
                 </div>
                 <div>
                   <p class="text-sm font-medium text-gray-900 dark:text-gray-100">Google Gemini</p>
-                  <p class="text-xs text-gray-600 dark:text-gray-400">Large Language Model</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">{{ t('about.technology.gemini.description') }}</p>
                 </div>
               </div>
               
@@ -145,7 +145,7 @@
                 </div>
                 <div>
                   <p class="text-sm font-medium text-gray-900 dark:text-gray-100">Hugging Face</p>
-                  <p class="text-xs text-gray-600 dark:text-gray-400">ML Models</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">{{ t('about.technology.huggingface.description') }}</p>
                 </div>
               </div>
               
@@ -155,7 +155,7 @@
                 </div>
                 <div>
                   <p class="text-sm font-medium text-gray-900 dark:text-gray-100">AI Coordination</p>
-                  <p class="text-xs text-gray-600 dark:text-gray-400">Smart Routing</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">{{ t('about.technology.aiCoordination.description') }}</p>
                 </div>
               </div>
             </div>
@@ -167,7 +167,7 @@
       <div class="card p-8 mb-12">
         <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center">
           <Star class="w-6 h-6 text-yellow-600 dark:text-yellow-400 mr-3" />
-          Key Features
+          {{ t('about.features.title') }}
         </h2>
         
         <div class="grid md:grid-cols-2 gap-8">
@@ -178,10 +178,10 @@
               </div>
               <div>
                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
-                  Multiple Summary Lengths
+                  {{ t('about.features.summaryLengths.title') }}
                 </h3>
                 <p class="text-gray-600 dark:text-gray-400 text-sm">
-                  Choose from short, medium, or long summaries based on your needs and time constraints.
+                  {{ t('about.features.summaryLengths.description') }}
                 </p>
               </div>
             </div>
@@ -192,10 +192,10 @@
               </div>
               <div>
                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
-                  File Upload Support
+                  {{ t('about.features.fileSupport.title') }}
                 </h3>
                 <p class="text-gray-600 dark:text-gray-400 text-sm">
-                  Directly upload and analyze TXT, PDF, and DOCX files without manual text extraction.
+                  {{ t('about.features.fileSupport.description') }}
                 </p>
               </div>
             </div>
@@ -206,10 +206,10 @@
               </div>
               <div>
                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
-                  Dark Mode Support
+                  {{ t('about.features.darkMode.title') }}
                 </h3>
                 <p class="text-gray-600 dark:text-gray-400 text-sm">
-                  Comfortable viewing experience with automatic dark mode detection and manual toggle.
+                  {{ t('about.features.darkMode.description') }}
                 </p>
               </div>
             </div>
@@ -222,10 +222,10 @@
               </div>
               <div>
                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
-                  Export & Share
+                  {{ t('about.features.exportShare.title') }}
                 </h3>
                 <p class="text-gray-600 dark:text-gray-400 text-sm">
-                  Export your analysis results as PDF or share them directly with colleagues and friends.
+                  {{ t('about.features.exportShare.description') }}
                 </p>
               </div>
             </div>
@@ -236,10 +236,10 @@
               </div>
               <div>
                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
-                  Analysis History
+                  {{ t('about.features.history.title') }}
                 </h3>
                 <p class="text-gray-600 dark:text-gray-400 text-sm">
-                  Keep track of all your analyses with persistent local storage and easy navigation.
+                  {{ t('about.features.history.description') }}
                 </p>
               </div>
             </div>
@@ -250,10 +250,10 @@
               </div>
               <div>
                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
-                  Privacy First
+                  {{ t('about.features.privacy.title') }}
                 </h3>
                 <p class="text-gray-600 dark:text-gray-400 text-sm">
-                  Your data is processed securely and never stored permanently on our servers.
+                  {{ t('about.features.privacy.description') }}
                 </p>
               </div>
             </div>
@@ -265,13 +265,13 @@
       <div class="card p-8 mb-12">
         <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center">
           <Globe class="w-6 h-6 text-blue-600 dark:text-blue-400 mr-3" />
-          API & Performance
+          {{ t('about.api.title') }}
         </h2>
         
         <div class="grid md:grid-cols-2 gap-8">
           <div>
             <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-              API Endpoints
+              {{ t('about.api.endpoints.title') }}
             </h3>
             <div class="space-y-3 font-mono text-sm">
               <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
@@ -291,19 +291,19 @@
           
           <div>
             <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-              Performance Metrics
+              {{ t('about.api.performance.title') }}
             </h3>
             <div class="space-y-4">
               <div class="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                <span class="text-sm text-gray-600 dark:text-gray-400">Average Response Time</span>
+                <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('about.api.performance.responseTime') }}</span>
                 <span class="font-semibold text-gray-900 dark:text-gray-100">~2-5 seconds</span>
               </div>
               <div class="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                <span class="text-sm text-gray-600 dark:text-gray-400">Max File Size</span>
+                <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('about.api.performance.maxFileSize') }}</span>
                 <span class="font-semibold text-gray-900 dark:text-gray-100">10 MB</span>
               </div>
               <div class="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                <span class="text-sm text-gray-600 dark:text-gray-400">Supported Formats</span>
+                <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('about.api.performance.supportedFormats') }}</span>
                 <span class="font-semibold text-gray-900 dark:text-gray-100">TXT</span>
               </div>
             </div>
@@ -315,13 +315,13 @@
       <div class="text-center">
         <div class="card p-12">
           <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-            Ready to Start Analyzing?
+            {{ t('about.cta.title') }}
           </h2>
           <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-            Experience the power of AI-driven text analysis. Upload your documents or paste your text to get started with intelligent summarization and keyword extraction.
+            {{ t('about.cta.description') }}
           </p>
           <router-link to="/" class="btn-primary">
-            Try TextSummarizer Now
+            {{ t('about.cta.button') }}
           </router-link>
         </div>
       </div>
@@ -334,4 +334,7 @@ import {
   Sparkles, Code, Star, Zap, Upload, Moon, Download, 
   Clock, Shield, Globe
 } from 'lucide-vue-next'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>

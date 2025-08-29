@@ -2,7 +2,7 @@
   <div v-if="result" class="card p-6 animate-fade-in">
     <div class="flex items-center justify-between mb-6">
       <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100">
-        Analysis Results
+        {{ t('components.results.title') }}
       </h2>
       
       <div class="flex items-center space-x-2">
@@ -13,7 +13,7 @@
           <button
             @click="copyToClipboard"
             class="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
-            :title="copyStatus === 'copied' ? 'Copied!' : 'Copy results'"
+:title="copyStatus === 'copied' ? t('components.results.toast.copied') : t('components.results.actions.copyText')"
           >
             <Check v-if="copyStatus === 'copied'" class="w-4 h-4 text-green-600" />
             <Copy v-else class="w-4 h-4" />
@@ -22,7 +22,7 @@
           <button
             @click="exportResults"
             class="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
-            title="Export as PDF"
+:title="t('components.results.actions.exportPdf')"
           >
             <Download class="w-4 h-4" />
           </button>
@@ -30,7 +30,7 @@
           <button
             @click="shareResults"
             class="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
-            title="Share results"
+:title="t('components.results.actions.shareResult')"
           >
             <Share2 class="w-4 h-4" />
           </button>
@@ -42,7 +42,7 @@
     <div class="mb-8">
       <div class="flex items-center space-x-2 mb-4">
         <FileText class="w-5 h-5 text-blue-600 dark:text-blue-400" />
-        <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Summary</h3>
+        <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">{{ t('components.results.summary') }}</h3>
         <span class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
           {{ result.summaryLength }}
         </span>
@@ -61,7 +61,7 @@
     <div class="mb-8">
       <div class="flex items-center space-x-2 mb-4">
         <Tag class="w-5 h-5 text-green-600 dark:text-green-400" />
-        <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Keywords</h3>
+        <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">{{ t('components.results.keywords') }}</h3>
         <span class="text-xs px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full">
           {{ result.keywords.length }}
         </span>
@@ -97,7 +97,7 @@
       
       <!-- Keyword List -->
       <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
-        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">All keywords:</p>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">{{ t('components.results.allKeywords') }}:</p>
         <p class="text-sm text-gray-800 dark:text-gray-200">
           {{ result.keywords.join(', ') }}
         </p>
@@ -114,9 +114,9 @@
           class="w-4 h-4 transition-transform duration-200" 
           :class="{ 'rotate-90': showOriginalText }"
         />
-        <span class="text-sm font-medium">Original Text</span>
+        <span class="text-sm font-medium">{{ t('components.results.originalText') }}</span>
         <span class="text-xs text-gray-500 dark:text-gray-400">
-          ({{ result.text.length.toLocaleString() }} characters)
+          ({{ languageStore.formatNumber(result.text.length) }} {{ t('common.common.characters') }})
         </span>
       </button>
       
@@ -136,28 +136,28 @@
           <div class="text-lg font-semibold text-blue-600 dark:text-blue-400">
             {{ result.text.length.toLocaleString() }}
           </div>
-          <div class="text-xs text-blue-600/70 dark:text-blue-400/70">Characters</div>
+          <div class="text-xs text-blue-600/70 dark:text-blue-400/70">{{ t('common.common.characters') }}</div>
         </div>
         
         <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-3">
           <div class="text-lg font-semibold text-green-600 dark:text-green-400">
-            {{ wordCount.toLocaleString() }}
+            {{ languageStore.formatNumber(wordCount) }}
           </div>
-          <div class="text-xs text-green-600/70 dark:text-green-400/70">Words</div>
+          <div class="text-xs text-green-600/70 dark:text-green-400/70">{{ t('common.common.words') }}</div>
         </div>
         
         <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-3">
           <div class="text-lg font-semibold text-purple-600 dark:text-purple-400">
             {{ result.keywords.length }}
           </div>
-          <div class="text-xs text-purple-600/70 dark:text-purple-400/70">Keywords</div>
+          <div class="text-xs text-purple-600/70 dark:text-purple-400/70">{{ t('components.results.keywords') }}</div>
         </div>
         
         <div class="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-3">
           <div class="text-lg font-semibold text-orange-600 dark:text-orange-400">
             {{ compressionRatio }}%
           </div>
-          <div class="text-xs text-orange-600/70 dark:text-orange-400/70">Compression</div>
+          <div class="text-xs text-orange-600/70 dark:text-orange-400/70">{{ t('components.results.compression') }}</div>
         </div>
       </div>
     </div>
@@ -169,10 +169,10 @@
       <Sparkles class="w-8 h-8 text-gray-400" />
     </div>
     <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
-      Ready to analyze your text
+      {{ t('components.results.emptyState.title') }}
     </h3>
     <p class="text-gray-600 dark:text-gray-400">
-      Enter some text or upload a file to get started with AI-powered summarization and keyword extraction.
+      {{ t('components.results.emptyState.description') }}
     </p>
   </div>
 </template>
@@ -183,6 +183,8 @@ import {
   FileText, Tag, Copy, Check, Download, Share2, ChevronRight, Sparkles
 } from 'lucide-vue-next'
 import { type AnalysisResult } from '@/stores/appStore'
+import { useI18n } from 'vue-i18n'
+import { useLanguageStore } from '@/stores/languageStore'
 import jsPDF from 'jspdf'
 
 interface Props {
@@ -190,7 +192,8 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-// const appStore = useAppStore()
+const { t } = useI18n()
+const languageStore = useLanguageStore()
 
 const showOriginalText = ref(false)
 const copyStatus = ref<'idle' | 'copied'>('idle')
@@ -207,19 +210,13 @@ const compressionRatio = computed(() => {
 })
 
 const formatDate = (date: Date) => {
-  return new Intl.DateTimeFormat('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
-  }).format(date)
+  return languageStore.formatDate(date)
 }
 
 const copyToClipboard = async () => {
   if (!props.result) return
   
-  const textToCopy = `SUMMARY:\n${props.result.summary}\n\nKEYWORDS:\n${props.result.keywords.join(', ')}`
+  const textToCopy = `${t('components.results.summary').toUpperCase()}:\n${props.result.summary}\n\n${t('components.results.keywords').toUpperCase()}:\n${props.result.keywords.join(', ')}`
   
   try {
     await navigator.clipboard.writeText(textToCopy)

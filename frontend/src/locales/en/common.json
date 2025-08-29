@@ -1,0 +1,45 @@
+{
+  "app": {
+    "name": "TextSummarizer",
+    "tagline": "AI-Powered Text Analysis Tool"
+  },
+  "nav": {
+    "analyze": "Analyze",
+    "about": "About"
+  },
+  "footer": {
+    "copyright": "© 2024 TextSummarizer. Built with Vue.js & AI.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "support": "Support"
+  },
+  "buttons": {
+    "analyze": "Analyze Text",
+    "clear": "Clear",
+    "export": "Export",
+    "share": "Share",
+    "copyToClipboard": "Copy to Clipboard",
+    "downloadPdf": "Download PDF",
+    "tryItNow": "Try It Now",
+    "learnMore": "Learn More",
+    "loadSample": "Load sample text",
+    "chooseFiles": "Choose Files",
+    "useAsInput": "Use as Input"
+  },
+  "status": {
+    "online": "online",
+    "offline": "offline",
+    "checking": "checking",
+    "processing": "Processing",
+    "analyzing": "Analyzing...",
+    "loading": "Loading..."
+  },
+  "common": {
+    "language": "Language",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "characters": "characters",
+    "words": "words",
+    "close": "Close"
+  }
+}
