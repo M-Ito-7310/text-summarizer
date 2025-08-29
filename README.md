@@ -27,13 +27,15 @@ This project demonstrates advanced AI integration, modern web development practi
 #### 🔍 **Text Analysis**
 - **AI-Powered Summarization**: Google Gemini 1.5 Flash model for high-quality Japanese abstractive summaries
 - **Smart Keyword Extraction**: Advanced frequency analysis with Japanese language optimization
-- **Multiple Length Options**: Short (50-100), Medium (100-200), Long (200-300) characters
+- **Multiple Length Options**: Short (50-100), Medium (100-200), Long (200-400) characters with clear indicators
+- **Language-Aware Processing**: Automatic detection and appropriate counting (sentences for Japanese, words for English)
 - **Real-time Processing**: Instant analysis with compression ratio display
 
 #### 📁 **File Processing**
-- **TXT File Support**: Direct text file upload and processing
-- **Drag & Drop Interface**: Modern file upload experience
+- **TXT File Support**: Direct text file upload and processing with test sample download
+- **Drag & Drop Interface**: Modern file upload experience with visual feedback
 - **File Size Limit**: 5MB maximum for optimal processing
+- **Language-Aware Display**: Proper text counting based on content language
 - **Future Support**: PDF and DOCX planned for upcoming releases
 
 #### 🌐 **Language Support**
@@ -44,10 +46,11 @@ This project demonstrates advanced AI integration, modern web development practi
 
 #### 🎨 **User Interface**
 - **Modern Design**: Clean, responsive interface with dark/light mode toggle
-- **Interactive Results**: Visual keyword grid with hover effects
-- **File Upload**: Drag & drop interface for TXT files
-- **Processing History**: Local storage with search and export capabilities
-- **Export Options**: PDF export and clipboard sharing functionality
+- **Interactive Results**: Visual keyword grid with hover effects and language-specific statistics
+- **Activity Dashboard**: Separate tracking for Japanese (sentences) and English (words) processing
+- **Enhanced PDF Export**: Multi-page export with original text inclusion
+- **Processing History**: Local storage with pagination, search, and language-aware display
+- **Organized Layout**: Optimized information hierarchy with Activity → History → Pro Tips flow
 
 #### 🔧 **AI Integration**
 - **Google Gemini API**: High-performance AI service with 1,500 requests/day free tier
@@ -312,6 +315,13 @@ The project is configured for one-click Vercel deployment:
 - **Deployment**: Automatic deployment on push to main, environment variables in Vercel, health check monitoring
 
 ## Future Roadmap
+
+### Recently Completed (Latest Release)
+- [x] **Language-Aware Text Processing**: Separate Japanese/English statistics and counting
+- [x] **Enhanced PDF Export**: Multi-page PDF with original text on second page
+- [x] **Summary Length Indicators**: Clear character count ranges for each length option
+- [x] **Test File Integration**: Downloadable test-sample.txt for upload testing
+- [x] **Improved UX Layout**: Optimized section ordering and button labeling
 
 ### Near Term (Phase 4)
 - [ ] **Enhanced File Support**: PDF and DOCX processing (currently TXT only)
