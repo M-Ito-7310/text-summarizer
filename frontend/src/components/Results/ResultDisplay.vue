@@ -94,14 +94,6 @@
           </div>
         </div>
       </div>
-      
-      <!-- Keyword List -->
-      <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
-        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">{{ t('components.results.allKeywords') }}:</p>
-        <p class="text-sm text-gray-800 dark:text-gray-200">
-          {{ result.keywords.join(', ') }}
-        </p>
-      </div>
     </div>
     
     <!-- Original Text Section (Collapsible) -->
@@ -161,19 +153,6 @@
         </div>
       </div>
     </div>
-  </div>
-  
-  <!-- Empty State -->
-  <div v-else class="card p-12 text-center">
-    <div class="w-16 h-16 mx-auto mb-4 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center">
-      <Sparkles class="w-8 h-8 text-gray-400" />
-    </div>
-    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">
-      {{ t('components.results.emptyState.title') }}
-    </h3>
-    <p class="text-gray-600 dark:text-gray-400">
-      {{ t('components.results.emptyState.description') }}
-    </p>
   </div>
 </template>
 

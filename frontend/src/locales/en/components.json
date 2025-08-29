@@ -3,7 +3,6 @@
     "title": "Summarization Results",
     "summary": "Summary",
     "keywords": "Keywords",
-    "allKeywords": "All keywords",
     "originalText": "Original Text",
     "compression": "Compression",
     "actions": {
@@ -13,10 +12,6 @@
     },
     "toast": {
       "copied": "Copied to clipboard!"
-    },
-    "emptyState": {
-      "title": "Ready to summarize your text",
-      "description": "Enter some text or upload a file to get started with AI-powered summarization and keyword extraction."
     }
   },
   "history": {

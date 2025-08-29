@@ -153,13 +153,7 @@
               <p class="text-gray-600 dark:text-gray-400 mb-4">
                 {{ t('home.features.cta.text') }}
               </p>
-              <div class="flex justify-center space-x-4">
-                <button
-                  @click="scrollToInput"
-                  class="btn-primary"
-                >
-                  {{ t('common.buttons.tryItNow') }}
-                </button>
+              <div class="flex justify-center">
                 <router-link to="/about" class="btn-secondary">
                   {{ t('common.buttons.learnMore') }}
                 </router-link>

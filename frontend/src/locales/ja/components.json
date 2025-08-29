@@ -3,7 +3,6 @@
     "title": "要約結果",
     "summary": "要約",
     "keywords": "キーワード",
-    "allKeywords": "すべてのキーワード",
     "originalText": "元のテキスト",
     "compression": "圧縮率",
     "actions": {
@@ -13,10 +12,6 @@
     },
     "toast": {
       "copied": "クリップボードにコピーしました！"
-    },
-    "emptyState": {
-      "title": "テキスト要約の準備完了",
-      "description": "テキストを入力するか、ファイルをアップロードしてAI搭載の要約とキーワード抽出を始めましょう。"
     }
   },
   "history": {
