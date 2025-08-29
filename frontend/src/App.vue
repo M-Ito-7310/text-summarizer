@@ -108,12 +108,14 @@ const handleLanguageChange = (langCode: 'ja' | 'en') => {
 // Close language menu when clicking outside
 const closeLanguageMenu = (event: Event) => {
   const target = event.target as HTMLElement
-  const languageButton = document.querySelector('[aria-label="Change language"]')
-  const languageMenu = document.querySelector('.absolute.right-0.mt-2')
   
-  // Don't close if clicking on language button or menu
-  if (languageButton?.contains(target) || languageMenu?.contains(target)) {
-    return
+  // Find the language switcher container by looking for the parent of our button
+  let current = target
+  while (current && current !== document.body) {
+    if (current.classList.contains('relative') && current.querySelector('button[class*="min-w-[50px]"]')) {
+      return // Click is inside language switcher
+    }
+    current = current.parentElement as HTMLElement
   }
   
   if (showLanguageMenu.value) {
