@@ -1,10 +1,10 @@
 {
   "app": {
     "name": "TextSummarizer",
-    "tagline": "AI-Powered Text Analysis Tool"
+    "tagline": "AI-Powered Text Summarization Tool"
   },
   "nav": {
-    "analyze": "Analyze",
+    "analyze": "Summarize",
     "about": "About"
   },
   "footer": {
@@ -14,7 +14,7 @@
     "support": "Support"
   },
   "buttons": {
-    "analyze": "Analyze Text",
+    "analyze": "Summarize Text",
     "clear": "Clear",
     "export": "Export",
     "share": "Share",
@@ -31,7 +31,7 @@
     "offline": "offline",
     "checking": "checking",
     "processing": "Processing",
-    "analyzing": "Analyzing...",
+    "analyzing": "Summarizing...",
     "loading": "Loading...",
     "validating": "Validating file...",
     "uploading": "Uploading file...",
@@ -52,7 +52,7 @@
     "fileType": "Unsupported file type. Only PDF, DOCX, and TXT files are allowed.",
     "upload": "File upload failed.",
     "processing": "An error occurred during processing.",
-    "analysis": "Text analysis failed.",
+    "analysis": "Text summarization failed.",
     "timeout": "Request timed out. Please try again."
   }
 }

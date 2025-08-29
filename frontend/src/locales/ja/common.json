@@ -1,10 +1,10 @@
 {
   "app": {
     "name": "TextSummarizer",
-    "tagline": "AI搭載テキスト分析ツール"
+    "tagline": "AI搭載テキスト要約ツール"
   },
   "nav": {
-    "analyze": "分析",
+    "analyze": "要約",
     "about": "このアプリについて"
   },
   "footer": {
@@ -14,7 +14,7 @@
     "support": "サポート"
   },
   "buttons": {
-    "analyze": "テキストを分析",
+    "analyze": "テキストを要約",
     "clear": "クリア",
     "export": "エクスポート",
     "share": "共有",
@@ -31,7 +31,7 @@
     "offline": "オフライン",
     "checking": "確認中",
     "processing": "処理中",
-    "analyzing": "分析中...",
+    "analyzing": "要約中...",
     "loading": "読み込み中...",
     "validating": "検証中...",
     "uploading": "アップロード中...",
@@ -52,7 +52,7 @@
     "fileType": "サポートされていないファイル形式です。PDF、DOCX、TXTファイルのみ許可されています。",
     "upload": "ファイルのアップロードに失敗しました。",
     "processing": "処理中にエラーが発生しました。",
-    "analysis": "テキスト分析に失敗しました。",
+    "analysis": "テキスト要約に失敗しました。",
     "timeout": "リクエストがタイムアウトしました。もう一度お試しください。"
   }
 }

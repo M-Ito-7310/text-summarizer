@@ -1,12 +1,12 @@
 {
   "title": "About TextSummarizer",
   "hero": {
-    "title": "Next-Gen AI-Powered Text Analysis",
-    "subtitle": "A modern, AI-powered tool for intelligent text analysis, summarization, and keyword extraction built with cutting-edge technology."
+    "title": "Next-Gen AI-Powered Text Summarization",
+    "subtitle": "A modern, AI-powered tool for intelligent text summarization and keyword extraction built with cutting-edge technology."
   },
   "overview": {
     "title": "What We Do",
-    "description": "TextSummarizer leverages state-of-the-art artificial intelligence to help you quickly understand and extract value from large volumes of text. Whether you're a researcher, student, content creator, or business professional, our tool helps you save time and gain insights faster.",
+    "description": "TextSummarizer leverages state-of-the-art artificial intelligence to help you quickly understand key points from large volumes of text through powerful summarization. Whether you're a researcher, student, content creator, or business professional, our tool helps you save reading time and grasp essential information faster.",
     "summarization": {
       "title": "Intelligent Summarization",
       "description": "Our AI models understand context and meaning to create accurate, coherent summaries that preserve the most important information while dramatically reducing reading time."
@@ -57,7 +57,7 @@
     },
     "fileSupport": {
       "title": "File Upload Support",
-      "description": "Directly upload and analyze TXT, PDF, and DOCX files without manual text extraction."
+      "description": "Directly upload and summarize TXT, PDF, and DOCX files without manual text extraction."
     },
     "darkMode": {
       "title": "Dark Mode Support",
@@ -65,11 +65,11 @@
     },
     "exportShare": {
       "title": "Export & Share",
-      "description": "Export your analysis results as PDF or share them directly with colleagues and friends."
+      "description": "Export your summarization results as PDF or share them directly with colleagues and friends."
     },
     "history": {
-      "title": "Analysis History",
-      "description": "Keep track of all your analyses with persistent local storage and easy navigation."
+      "title": "Summary History",
+      "description": "Keep track of all your summarizations with persistent local storage and easy navigation."
     },
     "privacy": {
       "title": "Privacy First",
@@ -89,8 +89,8 @@
     }
   },
   "cta": {
-    "title": "Ready to Start Analyzing?",
-    "description": "Experience the power of AI-driven text analysis. Upload your documents or paste your text to get started with intelligent summarization and keyword extraction.",
+    "title": "Ready to Start Summarizing?",
+    "description": "Experience the power of AI-driven text summarization. Upload your documents or paste your text to get started with intelligent summarization and keyword extraction.",
     "button": "Try TextSummarizer Now"
   }
 }

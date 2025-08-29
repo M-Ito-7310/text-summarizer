@@ -1,7 +1,7 @@
 {
   "hero": {
-    "title": "AI-Powered Text Analysis",
-    "subtitle": "Extract key insights from your text with advanced summarization and keyword extraction powered by state-of-the-art AI models. Upload files or paste text to get started.",
+    "title": "AI-Powered Text Summarization",
+    "subtitle": "Quickly understand the key points of your text with advanced AI-powered summarization and keyword extraction. Upload files or paste text to get started.",
     "badges": {
       "fileSupport": "File Support",
       "aiPowered": "AI-Powered",
@@ -42,7 +42,7 @@
     },
     "fileSupport": {
       "title": "File Support",
-      "description": "Upload and analyze PDF, DOCX, and TXT files with drag & drop support."
+      "description": "Upload and summarize PDF, DOCX, and TXT files with drag & drop support."
     },
     "history": {
       "title": "History & Export",
@@ -57,7 +57,7 @@
     "tip1": "For best results, provide text with at least 100 words for meaningful summarization.",
     "tip2": "Use the \"Medium\" length setting for balanced summaries that capture key details.",
     "tip3": "Upload TXT files directly instead of copying and pasting large documents.",
-    "tip4": "Your analysis history is saved locally and persists between sessions."
+    "tip4": "Your summary history is saved locally and persists between sessions."
   },
   "activity": {
     "title": "Your Activity",
