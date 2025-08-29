@@ -205,41 +205,64 @@ Summary:`;
         original: summary,
         trimmed: finalSummary,
         lastChar: finalSummary.slice(-1),
-        length: finalSummary.length
+        length: finalSummary.length,
+        isJapanese
       });
       
-      // Check if summary ends with incomplete sentence (particles, conjunctions, or incomplete words)
-      const incompleteEndings = /[とがはをにへでからまでよりのやかもでもだけしかこそさえすらなどなんてばかりまでもくらいち]$/;
-      const properEndings = /[。！？]$/;
+      // Language-specific ending validation
+      const incompleteEndings = isJapanese 
+        ? /[とがはをにへでからまでよりのやかもでもだけしかこそさえすらなどなんてばかりまでもくらいち]$/
+        : /[,;:]$/; // English incomplete endings
+      
+      const properEndings = isJapanese 
+        ? /[。！？]$/ 
+        : /[.!?]$/; // English proper endings
       
       if (incompleteEndings.test(finalSummary) || !properEndings.test(finalSummary)) {
         logger.info('Summary needs fixing - incomplete ending detected');
         
-        // Find the last complete sentence ending within the text
-        const sentences = finalSummary.match(/[^。！？]*[。！？]/g) || [];
-        logger.info('Found sentences:', { sentences, count: sentences.length });
-        
-        if (sentences.length > 0) {
-          // Use only complete sentences
-          finalSummary = sentences.join('');
-          logger.info('Using complete sentences:', { result: finalSummary });
-        } else {
-          // No complete sentences found - find the best cut point
-          logger.info('No complete sentences found, searching for cut point');
+        // Language-specific sentence handling
+        if (isJapanese) {
+          // Find the last complete Japanese sentence ending
+          const sentences = finalSummary.match(/[^。！？]*[。！？]/g) || [];
+          logger.info('Found Japanese sentences:', { sentences, count: sentences.length });
           
-          // Look for the last period in the summary
-          const lastPeriodIndex = finalSummary.lastIndexOf('。');
-          if (lastPeriodIndex > finalSummary.length * 0.5) {
-            // Cut at the last period if it's not too early
-            finalSummary = finalSummary.substring(0, lastPeriodIndex + 1);
-            logger.info('Cut at last period:', { result: finalSummary });
+          if (sentences.length > 0) {
+            finalSummary = sentences.join('');
+            logger.info('Using complete Japanese sentences:', { result: finalSummary });
           } else {
-            // Remove incomplete ending and add period
-            finalSummary = finalSummary.replace(/[とがはをにへでからまでよりのやかもでもだけしかこそさえすらなどなんてばかりまでもくらいち]+$/, '');
-            if (!properEndings.test(finalSummary)) {
-              finalSummary += '。';
+            // Add Japanese period if missing
+            const lastPeriodIndex = finalSummary.lastIndexOf('。');
+            if (lastPeriodIndex > finalSummary.length * 0.5) {
+              finalSummary = finalSummary.substring(0, lastPeriodIndex + 1);
+            } else {
+              finalSummary = finalSummary.replace(/[とがはをにへでからまでよりのやかもでもだけしかこそさえすらなどなんてばかりまでもくらいち]+$/, '');
+              if (!/[。！？]$/.test(finalSummary)) {
+                finalSummary += '。';
+              }
             }
-            logger.info('Cleaned and added period:', { result: finalSummary });
+            logger.info('Fixed Japanese ending:', { result: finalSummary });
+          }
+        } else {
+          // Find the last complete English sentence ending
+          const sentences = finalSummary.match(/[^.!?]*[.!?]/g) || [];
+          logger.info('Found English sentences:', { sentences, count: sentences.length });
+          
+          if (sentences.length > 0) {
+            finalSummary = sentences.join('');
+            logger.info('Using complete English sentences:', { result: finalSummary });
+          } else {
+            // Add English period if missing
+            const lastPeriodIndex = finalSummary.lastIndexOf('.');
+            if (lastPeriodIndex > finalSummary.length * 0.5) {
+              finalSummary = finalSummary.substring(0, lastPeriodIndex + 1);
+            } else {
+              finalSummary = finalSummary.replace(/[,;:]+$/, '');
+              if (!/[.!?]$/.test(finalSummary)) {
+                finalSummary += '.';
+              }
+            }
+            logger.info('Fixed English ending:', { result: finalSummary });
           }
         }
       }
@@ -251,42 +274,72 @@ Summary:`;
           needsCutting: true
         });
         
-        // Look for the last complete sentence that fits within the limit
-        const sentences = finalSummary.match(/[^。！？]*[。！？]/g) || [];
-        logger.info('Available sentences for cutting:', { sentences, count: sentences.length });
-        
-        let bestSummary = '';
-        for (const sentence of sentences) {
-          if ((bestSummary + sentence).length <= maxLength) {
-            bestSummary += sentence;
-          } else {
-            break; // This sentence would make it too long
-          }
-        }
-        
-        if (bestSummary.length >= maxLength * 0.6 && bestSummary.length > 0) {
-          // Good cut point found
-          finalSummary = bestSummary;
-          logger.info('Cut at sentence boundary:', { result: finalSummary, length: finalSummary.length });
-        } else {
-          // No good sentence boundary found, do manual cutting
-          logger.info('No good sentence boundary, manual cutting');
+        // Language-specific cutting logic
+        if (isJapanese) {
+          // Japanese sentence cutting
+          const sentences = finalSummary.match(/[^。！？]*[。！？]/g) || [];
+          logger.info('Available Japanese sentences for cutting:', { sentences, count: sentences.length });
           
-          // Find the last period within range
-          let cutPoint = maxLength - 1;
-          const lastPeriodIndex = finalSummary.lastIndexOf('。', cutPoint);
-          
-          if (lastPeriodIndex > maxLength * 0.5) {
-            finalSummary = finalSummary.substring(0, lastPeriodIndex + 1);
-            logger.info('Cut at last period:', { result: finalSummary, length: finalSummary.length });
-          } else {
-            // Cut and clean
-            finalSummary = finalSummary.substring(0, cutPoint);
-            finalSummary = finalSummary.replace(/[とがはをにへでからまでよりのやかもでもだけしかこそさえすらなどなんてばかりまでもくらいち]+$/, '');
-            if (!/[。！？]$/.test(finalSummary)) {
-              finalSummary += '。';
+          let bestSummary = '';
+          for (const sentence of sentences) {
+            if ((bestSummary + sentence).length <= maxLength) {
+              bestSummary += sentence;
+            } else {
+              break;
             }
-            logger.info('Manual cut and clean:', { result: finalSummary, length: finalSummary.length });
+          }
+          
+          if (bestSummary.length >= maxLength * 0.6 && bestSummary.length > 0) {
+            finalSummary = bestSummary;
+            logger.info('Cut at Japanese sentence boundary:', { result: finalSummary, length: finalSummary.length });
+          } else {
+            // Manual Japanese cutting
+            let cutPoint = maxLength - 1;
+            const lastPeriodIndex = finalSummary.lastIndexOf('。', cutPoint);
+            
+            if (lastPeriodIndex > maxLength * 0.5) {
+              finalSummary = finalSummary.substring(0, lastPeriodIndex + 1);
+            } else {
+              finalSummary = finalSummary.substring(0, cutPoint);
+              finalSummary = finalSummary.replace(/[とがはをにへでからまでよりのやかもでもだけしかこそさえすらなどなんてばかりまでもくらいち]+$/, '');
+              if (!/[。！？]$/.test(finalSummary)) {
+                finalSummary += '。';
+              }
+            }
+            logger.info('Manual Japanese cut and clean:', { result: finalSummary, length: finalSummary.length });
+          }
+        } else {
+          // English sentence cutting
+          const sentences = finalSummary.match(/[^.!?]*[.!?]/g) || [];
+          logger.info('Available English sentences for cutting:', { sentences, count: sentences.length });
+          
+          let bestSummary = '';
+          for (const sentence of sentences) {
+            if ((bestSummary + sentence).length <= maxLength) {
+              bestSummary += sentence;
+            } else {
+              break;
+            }
+          }
+          
+          if (bestSummary.length >= maxLength * 0.6 && bestSummary.length > 0) {
+            finalSummary = bestSummary;
+            logger.info('Cut at English sentence boundary:', { result: finalSummary, length: finalSummary.length });
+          } else {
+            // Manual English cutting
+            let cutPoint = maxLength - 1;
+            const lastPeriodIndex = finalSummary.lastIndexOf('.', cutPoint);
+            
+            if (lastPeriodIndex > maxLength * 0.5) {
+              finalSummary = finalSummary.substring(0, lastPeriodIndex + 1);
+            } else {
+              finalSummary = finalSummary.substring(0, cutPoint);
+              finalSummary = finalSummary.replace(/[,;:]+$/, '');
+              if (!/[.!?]$/.test(finalSummary)) {
+                finalSummary += '.';
+              }
+            }
+            logger.info('Manual English cut and clean:', { result: finalSummary, length: finalSummary.length });
           }
         }
       } else {
