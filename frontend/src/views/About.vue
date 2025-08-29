@@ -1,12 +1,12 @@
 <template>
   <div class="min-h-screen bg-gray-50 dark:bg-gray-900">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <!-- Hero Section -->
       <div class="text-center mb-16">
         <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-6">
           {{ t('about.title') }}
         </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed whitespace-pre-line">
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed whitespace-pre-line">
           {{ t('about.hero.subtitle') }}
         </p>
       </div>
