@@ -362,6 +362,87 @@ const exportHTMLToPDF = async () => {
       }
     }
     
+    // Add second page with original text
+    doc.addPage()
+    
+    // Create original text page
+    const originalTextDiv = document.createElement('div')
+    originalTextDiv.style.cssText = `
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+      width: 800px;
+      padding: 40px;
+      font-family: 'Noto Sans JP', 'Yu Gothic', 'Meiryo', sans-serif;
+      font-size: 12px;
+      line-height: 1.8;
+      color: #333;
+      background: white;
+    `
+    
+    originalTextDiv.innerHTML = `
+      <div style="margin-bottom: 30px;">
+        <h1 style="font-size: 20px; margin-bottom: 10px; color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">${t('components.results.originalText')}</h1>
+        <p style="font-size: 12px; color: #666;">${labels.generated}: ${formatDate(props.result.timestamp)}</p>
+      </div>
+      
+      <div style="margin-bottom: 20px;">
+        <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+          <p style="white-space: pre-wrap; line-height: 1.8; margin: 0;">${props.result.text}</p>
+        </div>
+      </div>
+      
+      <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; text-align: center; color: #666; font-size: 10px;">
+        <p>${labels.title} - ${formatDate(new Date())}</p>
+      </div>
+    `
+    
+    document.body.appendChild(originalTextDiv)
+    
+    try {
+      // Convert original text to canvas
+      const originalCanvas = await html2canvas(originalTextDiv, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: false,
+        backgroundColor: '#ffffff'
+      })
+      
+      const originalImgHeight = (originalCanvas.height * imgWidth) / originalCanvas.width
+      
+      // Handle multiple pages for original text if needed
+      if (originalImgHeight <= pageHeight - 20) {
+        // Single page for original text
+        doc.addImage(originalCanvas.toDataURL('image/png'), 'PNG', 0, 0, imgWidth, originalImgHeight)
+      } else {
+        // Multiple pages for original text
+        const originalPagesNeeded = Math.ceil(originalImgHeight / (pageHeight - 20))
+        const originalPageImgHeight = pageHeight - 20
+        
+        for (let i = 0; i < originalPagesNeeded; i++) {
+          if (i > 0) doc.addPage()
+          
+          const sourceY = i * (originalCanvas.height / originalPagesNeeded)
+          const sourceHeight = originalCanvas.height / originalPagesNeeded
+          
+          // Create temporary canvas for this page section
+          const pageCanvas = document.createElement('canvas')
+          pageCanvas.width = originalCanvas.width
+          pageCanvas.height = sourceHeight
+          const pageCtx = pageCanvas.getContext('2d')
+          
+          if (pageCtx) {
+            pageCtx.drawImage(originalCanvas, 0, sourceY, originalCanvas.width, sourceHeight, 0, 0, originalCanvas.width, sourceHeight)
+            const pageImgData = pageCanvas.toDataURL('image/png')
+            doc.addImage(pageImgData, 'PNG', 10, 10, imgWidth, originalPageImgHeight)
+          }
+        }
+      }
+      
+    } finally {
+      document.body.removeChild(originalTextDiv)
+    }
+    
     doc.save(`text-analysis-${Date.now()}.pdf`)
   } finally {
     document.body.removeChild(tempDiv)
