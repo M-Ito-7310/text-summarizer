@@ -276,15 +276,27 @@
             <div class="space-y-3 font-mono text-sm">
               <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
                 <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
+                <span class="text-gray-600 dark:text-gray-400 ml-2">/api/text/summarize</span>
+              </div>
+              <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
+                <span class="text-gray-600 dark:text-gray-400 ml-2">/api/text/keywords</span>
+              </div>
+              <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
                 <span class="text-gray-600 dark:text-gray-400 ml-2">/api/text/analyze</span>
               </div>
               <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
                 <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
-                <span class="text-gray-600 dark:text-gray-400 ml-2">/api/text/analyze-file</span>
+                <span class="text-gray-600 dark:text-gray-400 ml-2">/api/files/upload</span>
+              </div>
+              <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
+                <span class="text-green-600 dark:text-green-400 font-semibold">POST</span>
+                <span class="text-gray-600 dark:text-gray-400 ml-2">/api/files/analyze</span>
               </div>
               <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
                 <span class="text-blue-600 dark:text-blue-400 font-semibold">GET</span>
-                <span class="text-gray-600 dark:text-gray-400 ml-2">/api/health</span>
+                <span class="text-gray-600 dark:text-gray-400 ml-2">/health</span>
               </div>
             </div>
           </div>
@@ -300,11 +312,11 @@
               </div>
               <div class="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                 <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('about.api.performance.maxFileSize') }}</span>
-                <span class="font-semibold text-gray-900 dark:text-gray-100">10 MB</span>
+                <span class="font-semibold text-gray-900 dark:text-gray-100">5 MB</span>
               </div>
               <div class="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                 <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('about.api.performance.supportedFormats') }}</span>
-                <span class="font-semibold text-gray-900 dark:text-gray-100">TXT</span>
+                <span class="font-semibold text-gray-900 dark:text-gray-100">TXT, PDF, DOCX</span>
               </div>
             </div>
           </div>
