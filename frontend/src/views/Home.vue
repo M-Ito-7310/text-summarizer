@@ -162,50 +162,10 @@
           </div>
         </div>
         
-        <!-- Right Column: History -->
+        <!-- Right Column: Activity, History, Pro Tips -->
         <div class="lg:col-span-1">
-          <HistoryPanel @item-selected="handleHistoryItemSelected" />
-          
-          <!-- Tips Card -->
-          <div class="card p-6 mt-8">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center">
-              <Lightbulb class="w-5 h-5 text-yellow-600 dark:text-yellow-400 mr-2" />
-              {{ t('home.tips.title') }}
-            </h3>
-            
-            <div class="space-y-3 text-sm">
-              <div class="flex items-start space-x-2">
-                <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
-                <p class="text-gray-600 dark:text-gray-400">
-                  {{ t('home.tips.tip1') }}
-                </p>
-              </div>
-              
-              <div class="flex items-start space-x-2">
-                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
-                <p class="text-gray-600 dark:text-gray-400">
-                  {{ t('home.tips.tip2') }}
-                </p>
-              </div>
-              
-              <div class="flex items-start space-x-2">
-                <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0" />
-                <p class="text-gray-600 dark:text-gray-400">
-                  {{ t('home.tips.tip3') }}
-                </p>
-              </div>
-              
-              <div class="flex items-start space-x-2">
-                <div class="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0" />
-                <p class="text-gray-600 dark:text-gray-400">
-                  {{ t('home.tips.tip4') }}
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Stats Card -->
-          <div class="card p-6 mt-6">
+          <!-- Stats Card (Activity) -->
+          <div class="card p-6">
             <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center">
               <BarChart3 class="w-5 h-5 text-blue-600 dark:text-blue-400 mr-2" />
               {{ t('home.activity.title') }}
@@ -256,6 +216,49 @@
                 <span class="text-lg font-semibold text-gray-900 dark:text-gray-100">
                   {{ totalKeywords }}
                 </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- History Panel -->
+          <div class="mt-8">
+            <HistoryPanel @item-selected="handleHistoryItemSelected" />
+          </div>
+          
+          <!-- Tips Card -->
+          <div class="card p-6 mt-8">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center">
+              <Lightbulb class="w-5 h-5 text-yellow-600 dark:text-yellow-400 mr-2" />
+              {{ t('home.tips.title') }}
+            </h3>
+            
+            <div class="space-y-3 text-sm">
+              <div class="flex items-start space-x-2">
+                <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
+                <p class="text-gray-600 dark:text-gray-400">
+                  {{ t('home.tips.tip1') }}
+                </p>
+              </div>
+              
+              <div class="flex items-start space-x-2">
+                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                <p class="text-gray-600 dark:text-gray-400">
+                  {{ t('home.tips.tip2') }}
+                </p>
+              </div>
+              
+              <div class="flex items-start space-x-2">
+                <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0" />
+                <p class="text-gray-600 dark:text-gray-400">
+                  {{ t('home.tips.tip3') }}
+                </p>
+              </div>
+              
+              <div class="flex items-start space-x-2">
+                <div class="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0" />
+                <p class="text-gray-600 dark:text-gray-400">
+                  {{ t('home.tips.tip4') }}
+                </p>
               </div>
             </div>
           </div>
