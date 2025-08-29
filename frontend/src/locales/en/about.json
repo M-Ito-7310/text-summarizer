@@ -54,7 +54,7 @@
     },
     "fileSupport": {
       "title": "File Upload Support",
-      "description": "Directly upload and summarize TXT, PDF, and DOCX files without manual text extraction."
+      "description": "Currently supports TXT files with PDF and DOCX support coming soon."
     },
     "darkMode": {
       "title": "Dark Mode Support",

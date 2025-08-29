@@ -343,7 +343,7 @@
               <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300">
                 {{ t('about.api.performance.supportedFormats') }}
               </h3>
-              <p class="text-lg font-bold text-gray-900 dark:text-gray-100 mt-1">TXT, PDF, DOCX</p>
+              <p class="text-lg font-bold text-gray-900 dark:text-gray-100 mt-1">TXT <span class="text-sm text-gray-500">(PDF/DOCX予定)</span></p>
             </div>
             <div class="text-purple-500 dark:text-purple-400">
               <FileType class="w-8 h-8" />

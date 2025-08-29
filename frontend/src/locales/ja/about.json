@@ -54,7 +54,7 @@
     },
     "fileSupport": {
       "title": "ファイルアップロード対応",
-      "description": "手動でのテキスト抽出なしに、TXT、PDF、DOCXファイルを直接アップロードして要約できます。"
+      "description": "現在TXTファイルに対応しており、PDF・DOCXファイル対応も近日追加予定です。"
     },
     "darkMode": {
       "title": "ダークモード対応",
