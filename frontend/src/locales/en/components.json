@@ -3,6 +3,7 @@
     "title": "Summarization Results",
     "summary": "Summary",
     "keywords": "Keywords",
+    "statistics": "Statistics",
     "originalText": "Original Text",
     "compression": "Compression",
     "actions": {

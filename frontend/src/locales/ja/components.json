@@ -3,6 +3,7 @@
     "title": "要約結果",
     "summary": "要約",
     "keywords": "キーワード",
+    "statistics": "統計情報",
     "originalText": "元のテキスト",
     "compression": "圧縮率",
     "actions": {

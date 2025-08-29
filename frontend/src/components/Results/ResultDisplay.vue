@@ -256,13 +256,16 @@ const exportHTMLToPDF = async () => {
     background: white;
   `
   
+  // Detect language for word/sentence label
+  const hasJapanese = /[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]/.test(props.result.text)
+  
   // Use current UI language for PDF labels (not content language)
   const labels = {
     title: t('components.results.title'),
     generated: languageStore.locale === 'ja' ? '生成日時' : 'Generated',
     summary: t('components.results.summary'),
     keywords: t('components.results.keywords'),
-    statistics: languageStore.locale === 'ja' ? '統計情報' : 'Statistics',
+    statistics: t('components.results.statistics'),
     characters: t('common.common.characters'),
     words: hasJapanese ? t('common.common.sentenceCount') : t('common.common.words'),
     keywordCount: t('common.common.keywordsFound'),
