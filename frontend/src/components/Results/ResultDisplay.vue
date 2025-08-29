@@ -159,12 +159,13 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { 
-  FileText, Tag, Copy, Check, Download, Share2, ChevronRight, Sparkles
+  FileText, Tag, Copy, Check, Download, Share2, ChevronRight
 } from 'lucide-vue-next'
 import { type AnalysisResult } from '@/stores/appStore'
 import { useI18n } from 'vue-i18n'
 import { useLanguageStore } from '@/stores/languageStore'
 import jsPDF from 'jspdf'
+import html2canvas from 'html2canvas'
 
 interface Props {
   result?: AnalysisResult | null
@@ -208,44 +209,155 @@ const copyToClipboard = async () => {
   }
 }
 
-const exportResults = () => {
+const exportResults = async () => {
   if (!props.result) return
   
   try {
-    const doc = new jsPDF()
-    const pageWidth = doc.internal.pageSize.width
-    const margin = 20
-    const maxWidth = pageWidth - 2 * margin
-    
-    // Title
-    doc.setFontSize(20)
-    doc.text('Text Analysis Results', margin, 30)
-    
-    // Timestamp
-    doc.setFontSize(12)
-    doc.text(`Generated: ${formatDate(props.result.timestamp)}`, margin, 45)
-    
-    // Summary
-    doc.setFontSize(16)
-    doc.text('Summary:', margin, 65)
-    doc.setFontSize(12)
-    const summaryLines = doc.splitTextToSize(props.result.summary, maxWidth)
-    doc.text(summaryLines, margin, 80)
-    
-    // Keywords
-    let yPosition = 80 + (summaryLines.length * 7) + 20
-    doc.setFontSize(16)
-    doc.text('Keywords:', margin, yPosition)
-    doc.setFontSize(12)
-    yPosition += 15
-    const keywordText = props.result.keywords.join(', ')
-    const keywordLines = doc.splitTextToSize(keywordText, maxWidth)
-    doc.text(keywordLines, margin, yPosition)
-    
-    // Save
-    doc.save(`text-analysis-${Date.now()}.pdf`)
+    // Use html2canvas for both Japanese and English for consistent quality
+    await exportHTMLToPDF()
   } catch (err) {
     console.error('Failed to export PDF:', err)
+  }
+}
+
+// Legacy function removed - now using unified HTML-to-PDF approach
+
+const exportHTMLToPDF = async () => {
+  if (!props.result) return
+  
+  // Create a temporary HTML element with proper styling for both languages
+  const tempDiv = document.createElement('div')
+  tempDiv.style.cssText = `
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    width: 800px;
+    padding: 40px;
+    font-family: 'Noto Sans JP', 'Yu Gothic', 'Meiryo', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: white;
+  `
+  
+  // Detect language for appropriate labels
+  const hasJapanese = /[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]/.test(props.result.summary + props.result.keywords.join(''))
+  
+  const labels = hasJapanese ? {
+    title: 'テキスト要約結果',
+    generated: '生成日時',
+    summary: '要約',
+    keywords: 'キーワード',
+    statistics: '統計情報',
+    characters: '文字数',
+    words: '単語数',
+    keywordCount: 'キーワード数',
+    compression: '圧縮率'
+  } : {
+    title: 'Text Analysis Results',
+    generated: 'Generated',
+    summary: 'Summary',
+    keywords: 'Keywords',
+    statistics: 'Statistics',
+    characters: 'Characters',
+    words: 'Words',
+    keywordCount: 'Keywords Found',
+    compression: 'Compression Ratio'
+  }
+  
+  tempDiv.innerHTML = `
+    <div style="margin-bottom: 30px;">
+      <h1 style="font-size: 24px; margin-bottom: 10px; color: #2563eb;">${labels.title}</h1>
+      <p style="font-size: 12px; color: #666; margin-bottom: 20px;">${labels.generated}: ${formatDate(props.result.timestamp)}</p>
+    </div>
+    
+    <div style="margin-bottom: 30px;">
+      <h2 style="font-size: 18px; margin-bottom: 15px; color: #059669; border-left: 4px solid #059669; padding-left: 10px;">${labels.summary}</h2>
+      <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; line-height: 1.8; word-wrap: break-word;">
+        ${props.result.summary}
+      </div>
+    </div>
+    
+    <div style="margin-bottom: 30px;">
+      <h2 style="font-size: 18px; margin-bottom: 15px; color: #7c3aed; border-left: 4px solid #7c3aed; padding-left: 10px;">${labels.keywords}</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+        ${props.result.keywords.map(keyword => `<span style="background: #e0e7ff; padding: 8px 12px; border-radius: 6px; font-size: 13px; word-break: break-word;">${keyword}</span>`).join('')}
+      </div>
+    </div>
+    
+    <div>
+      <h2 style="font-size: 18px; margin-bottom: 15px; color: #dc2626; border-left: 4px solid #dc2626; padding-left: 10px;">${labels.statistics}</h2>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+        <div style="background: #f3f4f6; padding: 15px; border-radius: 8px;">
+          <div style="font-size: 20px; font-weight: bold; color: #1f2937;">${props.result.text.length.toLocaleString()}</div>
+          <div style="font-size: 12px; color: #6b7280;">${labels.characters}</div>
+        </div>
+        <div style="background: #f3f4f6; padding: 15px; border-radius: 8px;">
+          <div style="font-size: 20px; font-weight: bold; color: #1f2937;">${wordCount.value.toLocaleString()}</div>
+          <div style="font-size: 12px; color: #6b7280;">${labels.words}</div>
+        </div>
+        <div style="background: #f3f4f6; padding: 15px; border-radius: 8px;">
+          <div style="font-size: 20px; font-weight: bold; color: #1f2937;">${props.result.keywords.length}</div>
+          <div style="font-size: 12px; color: #6b7280;">${labels.keywordCount}</div>
+        </div>
+        <div style="background: #f3f4f6; padding: 15px; border-radius: 8px;">
+          <div style="font-size: 20px; font-weight: bold; color: #1f2937;">${compressionRatio.value}%</div>
+          <div style="font-size: 12px; color: #6b7280;">${labels.compression}</div>
+        </div>
+      </div>
+    </div>
+  `
+  
+  document.body.appendChild(tempDiv)
+  
+  try {
+    const canvas = await html2canvas(tempDiv, {
+      scale: 2,
+      useCORS: true,
+      allowTaint: false,
+      backgroundColor: '#ffffff'
+    })
+    
+    const imgData = canvas.toDataURL('image/png')
+    const doc = new jsPDF()
+    const pageWidth = doc.internal.pageSize.width
+    const pageHeight = doc.internal.pageSize.height
+    
+    // Calculate image dimensions to fit page
+    const imgWidth = pageWidth - 20
+    const imgHeight = (canvas.height * imgWidth) / canvas.width
+    
+    if (imgHeight <= pageHeight - 20) {
+      // Single page
+      doc.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight)
+    } else {
+      // Multiple pages needed
+      const pagesNeeded = Math.ceil(imgHeight / (pageHeight - 20))
+      const pageImgHeight = pageHeight - 20
+      
+      for (let i = 0; i < pagesNeeded; i++) {
+        if (i > 0) doc.addPage()
+        
+        const sourceY = i * (canvas.height / pagesNeeded)
+        const sourceHeight = canvas.height / pagesNeeded
+        
+        // Create temporary canvas for this page section
+        const pageCanvas = document.createElement('canvas')
+        pageCanvas.width = canvas.width
+        pageCanvas.height = sourceHeight
+        const pageCtx = pageCanvas.getContext('2d')
+        
+        if (pageCtx) {
+          pageCtx.drawImage(canvas, 0, sourceY, canvas.width, sourceHeight, 0, 0, canvas.width, sourceHeight)
+          const pageImgData = pageCanvas.toDataURL('image/png')
+          doc.addImage(pageImgData, 'PNG', 10, 10, imgWidth, pageImgHeight)
+        }
+      }
+    }
+    
+    doc.save(`text-analysis-${Date.now()}.pdf`)
+  } finally {
+    document.body.removeChild(tempDiv)
   }
 }
 
